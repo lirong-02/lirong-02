@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState } from "react";
+import { motion } from "framer-motion";
 import {
   Mail,
   Phone,
@@ -8,66 +8,65 @@ import {
   Share2,
   CheckCircle,
   AlertCircle,
-  Sparkles,
-} from 'lucide-react';
-import { FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
-import { config } from '@/portfolio.config';
-import { ShareModal } from '@/components/ShareModal';
-import { ChangelogModal } from '@/components/ChangelogModal';
-import { fadeUpVariants } from '@/lib/animation';
+} from "lucide-react";
+import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { config } from "@/portfolio.config";
+import { ShareModal } from "@/components/ShareModal";
+import { fadeUpVariants } from "@/lib/animation";
 
 const fadeUp = fadeUpVariants(40, 0.75, 0.12);
 
-type FormStatus = 'idle' | 'sending' | 'success' | 'error';
+type FormStatus = "idle" | "sending" | "success" | "error";
 
 export function Contact() {
   const [shareOpen, setShareOpen] = useState(false);
-  const [changelogOpen, setChangelogOpen] = useState(false);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [status, setStatus] = useState<FormStatus>('idle');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<FormStatus>("idle");
 
   const hasEndpoint = !!config.contactFormEndpoint;
-  const contactHeading = config.contactHeading ?? 'Get In Touch';
-  const contactTitle = config.contactTitle ?? 'Let’s work\ntogether.';
+  const contactHeading = config.contactHeading ?? "Get In Touch";
+  const contactTitle = config.contactTitle ?? "Let’s work\ntogether.";
   const contactDescription =
     config.contactDescription ??
-    'Open to new opportunities. Whether you have a role in mind or just want to connect — my inbox is always open.';
+    "Open to new opportunities. Whether you have a role in mind or just want to connect — my inbox is always open.";
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!name || !email || !message) return;
 
     if (!hasEndpoint) {
-      const subject = encodeURIComponent(`Message from ${name}`);
+      const subject = encodeURIComponent(`来自作品集的留言 - ${name}`);
       const body = encodeURIComponent(
-        `Name: ${name}\nEmail: ${email}\n\n${message}`
+        `Name: ${name}\nEmail: ${email}\n\n${message}`,
       );
       window.open(`mailto:${config.email}?subject=${subject}&body=${body}`);
       return;
     }
 
-    setStatus('sending');
+    setStatus("sending");
     try {
+      // SAFETY: contactFormEndpoint 是站点所有者在 portfolio.config.yaml 中静态配置的值，
+      // 构建时编入站点，不来自任何运行时用户输入，不存在被注入任意目标的风险。
       const res = await fetch(config.contactFormEndpoint, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
         body: JSON.stringify({ name, email, message }),
       });
       if (res.ok) {
-        setStatus('success');
-        setName('');
-        setEmail('');
-        setMessage('');
+        setStatus("success");
+        setName("");
+        setEmail("");
+        setMessage("");
       } else {
-        setStatus('error');
+        setStatus("error");
       }
     } catch {
-      setStatus('error');
+      setStatus("error");
     }
   }
 
@@ -84,13 +83,13 @@ export function Contact() {
             custom={0}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: true, margin: "-80px" }}
           >
             <p className="text-primary mb-4 font-mono text-xs font-medium tracking-widest uppercase">
               {contactHeading}
             </p>
             <h2 className="section-heading text-foreground mb-5 text-4xl leading-tight md:text-6xl">
-              {contactTitle.split('\n').map((line, index) =>
+              {contactTitle.split("\n").map((line, index) =>
                 index === 1 ? (
                   <em key={index} className="font-light italic not-italic">
                     {line}
@@ -98,9 +97,9 @@ export function Contact() {
                 ) : (
                   <span key={index}>
                     {line}
-                    {index === 0 && contactTitle.includes('\n') ? <br /> : null}
+                    {index === 0 && contactTitle.includes("\n") ? <br /> : null}
                   </span>
-                )
+                ),
               )}
             </h2>
             <p className="text-muted-foreground mx-auto max-w-md leading-relaxed font-light">
@@ -115,7 +114,7 @@ export function Contact() {
             custom={1}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, margin: "-60px" }}
             className="flex w-full max-w-lg flex-col gap-3 text-left"
           >
             <div className="flex flex-col gap-3 sm:flex-row">
@@ -124,7 +123,7 @@ export function Contact() {
                   htmlFor="contact-name"
                   className="text-muted-foreground text-xs font-medium tracking-wide"
                 >
-                  Your name
+                  您的称呼
                 </label>
                 <input
                   id="contact-name"
@@ -132,7 +131,7 @@ export function Contact() {
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Your Name"
+                  placeholder="怎么称呼您"
                   className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:ring-primary/40 focus:border-primary/40 w-full rounded-xl border px-4 py-3 text-sm transition-colors focus:ring-1 focus:outline-none"
                 />
               </div>
@@ -141,7 +140,7 @@ export function Contact() {
                   htmlFor="contact-email"
                   className="text-muted-foreground text-xs font-medium tracking-wide"
                 >
-                  Your email
+                  您的邮箱
                 </label>
                 <input
                   id="contact-email"
@@ -149,7 +148,7 @@ export function Contact() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Your email"
+                  placeholder="您的工作邮箱"
                   className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:ring-primary/40 focus:border-primary/40 w-full rounded-xl border px-4 py-3 text-sm transition-colors focus:ring-1 focus:outline-none"
                 />
               </div>
@@ -159,7 +158,7 @@ export function Contact() {
                 htmlFor="contact-message"
                 className="text-muted-foreground text-xs font-medium tracking-wide"
               >
-                Message
+                留言内容
               </label>
               <textarea
                 id="contact-message"
@@ -167,44 +166,44 @@ export function Contact() {
                 rows={5}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                placeholder="Tell me about your project or opportunity…"
+                placeholder="介绍一下您的机会或想法…"
                 className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:ring-primary/40 focus:border-primary/40 w-full resize-none rounded-xl border px-4 py-3 text-sm transition-colors focus:ring-1 focus:outline-none"
               />
             </div>
 
-            {status === 'success' && (
+            {status === "success" && (
               <div className="flex items-center gap-2 rounded-xl border border-green-500/30 bg-green-500/10 px-4 py-3 text-sm text-green-600 dark:text-green-400">
                 <CheckCircle size={16} className="shrink-0" />
-                Message sent! I&rsquo;ll get back to you soon.
+                留言已发送，我会尽快回复您！
               </div>
             )}
-            {status === 'error' && (
+            {status === "error" && (
               <div className="flex items-center gap-2 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-600 dark:text-red-400">
                 <AlertCircle size={16} className="shrink-0" />
-                Something went wrong — please try emailing directly.
+                发送失败，请直接发邮件联系我。
               </div>
             )}
 
             <button
               type="submit"
-              disabled={status === 'sending'}
+              disabled={status === "sending"}
               className="bg-primary text-primary-foreground flex items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-sm font-medium transition-opacity hover:opacity-90 disabled:opacity-50"
             >
               <Send size={15} />
-              {status === 'sending'
-                ? 'Sending…'
+              {status === "sending"
+                ? "发送中…"
                 : hasEndpoint
-                  ? 'Send message'
-                  : 'Open in email app'}
+                  ? "发送留言"
+                  : "通过邮件应用发送"}
             </button>
             {!hasEndpoint && (
               <p className="text-muted-foreground text-center text-xs">
-                Opens your email client with the message pre-filled.{' '}
+                将在您的邮件客户端预填留言内容。{" "}
                 <a
                   href={`mailto:${config.email}`}
                   className="text-primary underline-offset-2 hover:underline"
                 >
-                  Or email directly →
+                  直接发邮件 →
                 </a>
               </p>
             )}
@@ -216,7 +215,7 @@ export function Contact() {
             custom={2}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, margin: "-60px" }}
             className="flex flex-col items-center gap-3 sm:flex-row"
           >
             <a
@@ -229,7 +228,7 @@ export function Contact() {
             </a>
             {config.phone && (
               <a
-                href={`tel:${config.phone.replace(/\s/g, '')}`}
+                href={`tel:${config.phone.replace(/\s/g, "")}`}
                 className="border-border text-foreground hover:bg-secondary hover:border-primary/40 flex items-center gap-2.5 rounded-2xl border px-6 py-3 text-sm font-medium tracking-wide transition-all"
                 data-testid="link-contact-phone"
               >
@@ -245,7 +244,7 @@ export function Contact() {
             custom={3}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, margin: "-60px" }}
             className="flex items-center gap-3"
           >
             {config.social.github && (
@@ -292,7 +291,7 @@ export function Contact() {
             custom={4}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, margin: "-60px" }}
             className="flex flex-wrap items-center justify-center gap-3"
           >
             <a
@@ -302,7 +301,7 @@ export function Contact() {
               data-testid="button-download-resume-footer"
             >
               <Download size={14} />
-              Download Resume
+              下载简历
             </a>
             <button
               onClick={() => setShareOpen(true)}
@@ -310,7 +309,7 @@ export function Contact() {
               data-testid="button-share-resume-footer"
             >
               <Share2 size={14} />
-              Share Portfolio
+              分享本页
             </button>
           </motion.div>
 
@@ -322,11 +321,11 @@ export function Contact() {
             custom={5}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-40px' }}
+            viewport={{ once: true, margin: "-40px" }}
             className="border-border/60 w-full border-t pt-8 text-center"
           >
             <p className="text-muted-foreground font-mono text-xs tracking-wide">
-              Built with{' '}
+              基于{" "}
               <a
                 href="https://github.com/git-vitae/git-vitae.github.io"
                 target="_blank"
@@ -334,22 +333,10 @@ export function Contact() {
                 className="text-primary underline-offset-2 hover:underline"
               >
                 GitVitae
-              </a>{' '}
-              &mdash; fork and make it yours.
+              </a>{" "}
+              构建
             </p>
-            <button
-              onClick={() => setChangelogOpen(true)}
-              className="text-muted-foreground/60 hover:text-primary no-print mt-2 inline-flex items-center gap-1.5 text-[11px] transition-colors"
-            >
-              <Sparkles size={10} />
-              What's new in v1.3
-            </button>
           </motion.div>
-
-          <ChangelogModal
-            open={changelogOpen}
-            onClose={() => setChangelogOpen(false)}
-          />
         </div>
       </div>
     </footer>

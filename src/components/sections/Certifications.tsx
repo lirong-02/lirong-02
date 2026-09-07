@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
-import { Award, ExternalLink } from 'lucide-react';
-import { config } from '@/portfolio.config';
-import { fadeUpVariants } from '@/lib/animation';
+import { motion } from "framer-motion";
+import { Award, ExternalLink } from "lucide-react";
+import { config } from "@/portfolio.config";
+import { fadeUpVariants } from "@/lib/animation";
 
 const fadeUp = fadeUpVariants(36, 0.7, 0.1);
 
@@ -16,20 +16,20 @@ export function Certifications() {
           custom={0}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: "-80px" }}
           className="text-primary mb-4 font-mono text-xs font-medium tracking-widest uppercase"
         >
-          Certifications
+          荣誉
         </motion.p>
         <motion.h2
           variants={fadeUp}
           custom={1}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: "-80px" }}
           className="section-heading text-foreground mb-10 text-4xl md:text-5xl"
         >
-          Credentials & Badges
+          荣誉奖项
         </motion.h2>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -40,7 +40,7 @@ export function Certifications() {
               custom={i + 2}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: '-60px' }}
+              viewport={{ once: true, margin: "-60px" }}
               data-testid={`certification-${i}`}
               className="group border-border bg-card card-hover relative flex flex-col gap-4 rounded-2xl border p-6"
             >
@@ -54,10 +54,10 @@ export function Certifications() {
                     onError={(e) => {
                       // Fallback to icon if image fails to load
                       (e.currentTarget as HTMLImageElement).style.display =
-                        'none';
+                        "none";
                       const fallback = e.currentTarget
                         .nextElementSibling as HTMLElement;
-                      if (fallback) fallback.style.display = 'flex';
+                      if (fallback) fallback.style.display = "flex";
                     }}
                   />
                 ) : null}
@@ -65,7 +65,7 @@ export function Certifications() {
                 {/* Fallback icon — shown when no badgeUrl or image fails */}
                 <div
                   className={`bg-primary/10 text-primary h-14 w-14 shrink-0 items-center justify-center rounded-xl ${
-                    cert.badgeUrl ? 'hidden' : 'flex'
+                    cert.badgeUrl ? "hidden" : "flex"
                   }`}
                 >
                   <Award size={24} />

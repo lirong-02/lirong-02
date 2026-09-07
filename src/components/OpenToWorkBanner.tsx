@@ -1,7 +1,7 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
-import { X, Mail } from 'lucide-react';
-import { config } from '@/portfolio.config';
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { X, Mail } from "lucide-react";
+import { config } from "@/portfolio.config";
 
 interface OpenToWorkBannerProps {
   onDismiss: () => void;
@@ -38,21 +38,21 @@ export function OpenToWorkBanner({
           </span>
 
           <span className="text-[11px] font-semibold tracking-widest uppercase">
-            Open to opportunities
+            求职中
           </span>
 
           <span className="text-primary-foreground/50 hidden sm:inline">·</span>
 
           <span className="text-primary-foreground/75 hidden text-[11px] sm:inline">
-            Available for full-time roles &amp; freelance projects
+            正在寻找新媒体运营 / 内容运营实习机会
           </span>
 
           <a
-            href={`mailto:${config.email}?subject=Opportunity for ${config.name}`}
+            href={`mailto:${config.email}?subject=求职机会对接`}
             className="bg-primary-foreground/15 hover:bg-primary-foreground/25 border-primary-foreground/20 ml-1 flex items-center gap-1.5 rounded-full border px-3 py-1 text-[11px] font-semibold tracking-widest whitespace-nowrap uppercase transition-colors"
           >
             <Mail size={11} />
-            Get in touch
+            联系我
           </a>
 
           <button

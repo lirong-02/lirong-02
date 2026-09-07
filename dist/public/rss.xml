@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title><![CDATA[博客]]></title>
+    <link></link>
+    <description><![CDATA[]]></description>
+    <atom:link href="/rss.xml" rel="self" type="application/rss+xml"/>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 07 Sep 2026 15:33:11 GMT</lastBuildDate>
+    
+    <item>
+      <title><![CDATA[Hello, World]]></title>
+      <link>/#/blog/hello-world</link>
+      <guid isPermaLink="false">/#/blog/hello-world</guid>
+      <pubDate>Sun, 20 Apr 2025 00:00:00 GMT</pubDate>
+      <description><![CDATA[Every developer eventually writes a first post. This is mine — a bit about why I finally built this thing.]]></description>
+      <category>life</category>
+      <category>writing</category>
+    </item>
+    <item>
+      <title><![CDATA[Why I Started Building in Public]]></title>
+      <link>/#/blog/building-in-public</link>
+      <guid isPermaLink="false">/#/blog/building-in-public</guid>
+      <pubDate>Mon, 10 Mar 2025 00:00:00 GMT</pubDate>
+      <description><![CDATA[Sharing your work before it's perfect is terrifying. It's also the best career move I've made.]]></description>
+      <category>career</category>
+      <category>mindset</category>
+    </item>
+    <item>
+      <title><![CDATA[The One-File Philosophy]]></title>
+      <link>/#/blog/the-one-file-philosophy</link>
+      <guid isPermaLink="false">/#/blog/the-one-file-philosophy</guid>
+      <pubDate>Sat, 01 Feb 2025 00:00:00 GMT</pubDate>
+      <description><![CDATA[The best tools ask you for one thing and do the rest. Here's why I care about that more than ever.]]></description>
+      <category>design</category>
+      <category>simplicity</category>
+      <category>tools</category>
+    </item>
+  </channel>
+</rss>

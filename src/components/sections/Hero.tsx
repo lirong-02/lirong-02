@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
-import { Download, MapPin, Phone, ArrowDown } from 'lucide-react';
-import { FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { config } from '@/portfolio.config';
+import { useState, useEffect, useRef } from "react";
+import { Download, MapPin, Phone, ArrowDown } from "lucide-react";
+import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { config } from "@/portfolio.config";
 
 function Avatar() {
   if (config.avatarUrl) {
@@ -18,9 +18,9 @@ function Avatar() {
     );
   }
   const initials = config.name
-    .split(' ')
+    .split(" ")
     .map((n) => n[0])
-    .join('')
+    .join("")
     .slice(0, 2)
     .toUpperCase();
   return (
@@ -28,7 +28,7 @@ function Avatar() {
       className="text-primary-foreground ring-primary/30 flex h-28 w-28 items-center justify-center rounded-2xl font-serif text-3xl font-bold ring-2"
       style={{
         background:
-          'linear-gradient(135deg, hsl(var(--primary)), hsl(250 84% 80%))',
+          "linear-gradient(135deg, hsl(var(--primary)), hsl(250 84% 80%))",
       }}
       data-testid="div-avatar-initials"
     >
@@ -38,7 +38,7 @@ function Avatar() {
 }
 
 function TypewriterText({ text }: { text: string }) {
-  const [displayed, setDisplayed] = useState('');
+  const [displayed, setDisplayed] = useState("");
   const [done, setDone] = useState(false);
 
   useEffect(() => {
@@ -72,13 +72,13 @@ export function Hero() {
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ['start start', 'end start'],
+    offset: ["start start", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '28%']);
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "28%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.65], [1, 0]);
-  const gridY = useTransform(scrollYProgress, [0, 1], ['0%', '14%']);
-  const blobY = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
+  const gridY = useTransform(scrollYProgress, [0, 1], ["0%", "14%"]);
+  const blobY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
   const arrowOpacity = useTransform(scrollYProgress, [0, 0.18], [1, 0]);
 
   return (
@@ -92,8 +92,8 @@ export function Hero() {
         style={{
           y: gridY,
           backgroundImage:
-            'radial-gradient(hsl(var(--primary) / 0.11) 1px, transparent 1px)',
-          backgroundSize: '44px 44px',
+            "radial-gradient(hsl(var(--primary) / 0.11) 1px, transparent 1px)",
+          backgroundSize: "44px 44px",
         }}
         className="pointer-events-none absolute inset-0 opacity-30 dark:opacity-20"
       />
@@ -103,7 +103,7 @@ export function Hero() {
         style={{
           y: blobY,
           background:
-            'radial-gradient(ellipse, hsl(var(--primary)), transparent 70%)',
+            "radial-gradient(ellipse, hsl(var(--primary)), transparent 70%)",
         }}
         className="pointer-events-none absolute top-1/3 left-1/2 h-[500px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-15 blur-3xl"
       />
@@ -130,14 +130,14 @@ export function Hero() {
           {config.openToWork && (
             <span className="inline-flex items-center gap-1.5 rounded-full border border-green-500/20 bg-green-500/10 px-3 py-1 text-xs font-medium tracking-wide text-green-600 uppercase dark:text-green-400">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-green-500" />
-              Open to opportunities
+              求职中 · 随时到岗
             </span>
           )}
 
           <h1 className="text-foreground font-serif text-6xl leading-none font-light tracking-tight md:text-8xl">
-            {config.name.split(' ').map((word, i) => (
-              <span key={i} className={i === 1 ? 'italic' : ''}>
-                {i > 0 ? ' ' : ''}
+            {config.name.split(" ").map((word, i) => (
+              <span key={i} className={i === 1 ? "italic" : ""}>
+                {i > 0 ? " " : ""}
                 {word}
               </span>
             ))}
@@ -162,7 +162,7 @@ export function Hero() {
               )}
               {config.phone && (
                 <a
-                  href={`tel:${config.phone.replace(/\s/g, '')}`}
+                  href={`tel:${config.phone.replace(/\s/g, "")}`}
                   className="hover:text-foreground flex items-center gap-1.5 transition-colors"
                 >
                   <Phone size={12} />
@@ -224,11 +224,11 @@ export function Hero() {
           className="flex flex-wrap items-center justify-center gap-3"
         >
           <a
-            href="#projects"
+            href="#experience"
             className="bg-primary text-primary-foreground rounded-xl px-7 py-3 text-sm font-medium tracking-wide transition-opacity hover:opacity-90"
             data-testid="button-view-work"
           >
-            View My Work
+            查看我的经历
           </a>
           <a
             href="#/resume"
@@ -236,7 +236,7 @@ export function Hero() {
             data-testid="button-view-resume"
           >
             <Download size={14} />
-            View Resume
+            查看简历
           </a>
         </motion.div>
       </motion.div>
@@ -249,8 +249,8 @@ export function Hero() {
         transition={{ duration: 0.5, delay: 1.2 }}
         onClick={() =>
           document
-            .querySelector('#about')
-            ?.scrollIntoView({ behavior: 'smooth' })
+            .querySelector("#about")
+            ?.scrollIntoView({ behavior: "smooth" })
         }
         className="text-muted-foreground hover:text-foreground absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce rounded-full p-2 transition-colors"
         aria-label="Scroll down"

@@ -1,24 +1,24 @@
-import { useRef, useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import { Mail, Globe } from 'lucide-react';
-import { config } from '@/portfolio.config';
-import { fadeUpVariants } from '@/lib/animation';
+import { useRef, useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { Mail, Globe } from "lucide-react";
+import { config } from "@/portfolio.config";
+import { fadeUpVariants } from "@/lib/animation";
 
 const fadeUp = fadeUpVariants(48, 0.8, 0.12);
 
 const LEVEL_STYLE: Record<string, string> = {
-  native: 'bg-primary text-primary-foreground border-primary',
-  fluent: 'bg-primary/15 text-primary border-primary/30',
-  conversational: 'bg-secondary text-foreground border-border',
-  professional: 'bg-secondary text-foreground border-border',
-  basic: 'bg-secondary/60 text-muted-foreground border-border',
-  elementary: 'bg-secondary/60 text-muted-foreground border-border',
+  native: "bg-primary text-primary-foreground border-primary",
+  fluent: "bg-primary/15 text-primary border-primary/30",
+  conversational: "bg-secondary text-foreground border-border",
+  professional: "bg-secondary text-foreground border-border",
+  basic: "bg-secondary/60 text-muted-foreground border-border",
+  elementary: "bg-secondary/60 text-muted-foreground border-border",
 };
 
 function levelStyle(level: string) {
   return (
     LEVEL_STYLE[level.toLowerCase()] ??
-    'bg-secondary text-foreground border-border'
+    "bg-secondary text-foreground border-border"
   );
 }
 
@@ -42,12 +42,12 @@ function StatCard({
 }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [displayed, setDisplayed] = useState<number | string>(
-    typeof stat.value === 'number' ? 0 : stat.value
+    typeof stat.value === "number" ? 0 : stat.value,
   );
   const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
-    if (hasAnimated || typeof stat.value !== 'number') return;
+    if (hasAnimated || typeof stat.value !== "number") return;
 
     const el = cardRef.current;
     if (!el) return;
@@ -72,7 +72,7 @@ function StatCard({
 
         requestAnimationFrame(step);
       },
-      { threshold: 0.4 }
+      { threshold: 0.4 },
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -85,14 +85,14 @@ function StatCard({
       custom={delay}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-60px' }}
+      viewport={{ once: true, margin: "-60px" }}
       className="border-border bg-card card-hover rounded-2xl border p-6"
-      data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, '-')}`}
+      data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}
     >
       <p className="gradient-text mb-2 font-serif text-4xl font-light">
-        {stat.prefix ?? ''}
+        {stat.prefix ?? ""}
         {displayed}
-        {stat.suffix ?? ''}
+        {stat.suffix ?? ""}
       </p>
       <p className="text-muted-foreground text-xs tracking-wide">
         {stat.label}
@@ -108,25 +108,30 @@ export function About() {
 
   const hasLanguages = config.languages && config.languages.length > 0;
 
+  const fallbackStats: {
+    label: string;
+    value: number | string;
+    prefix?: string;
+    suffix?: string;
+  }[] = [
+    { label: "工作年限", value: 5, prefix: "", suffix: "+" },
+    { label: "内容产出", value: 20, prefix: "", suffix: "+" },
+    {
+      label: "技能项",
+      value: config.skills.reduce((acc, s) => acc + s.items.length, 0),
+      prefix: "",
+      suffix: "+",
+    },
+    {
+      label: "累计阅读",
+      value: "∞",
+      prefix: "",
+      suffix: "",
+    },
+  ];
+
   const stats =
-    config.stats.length > 0
-      ? config.stats.slice(0, 4)
-      : [
-          { label: 'Years Experience', value: 5, prefix: '', suffix: '+' },
-          { label: 'Projects Shipped', value: 20, prefix: '', suffix: '+' },
-          {
-            label: 'Technologies',
-            value: config.skills.reduce((acc, s) => acc + s.items.length, 0),
-            prefix: '',
-            suffix: '+',
-          },
-          {
-            label: 'Cups of Coffee',
-            value: '∞' as unknown as number,
-            prefix: '',
-            suffix: '',
-          },
-        ];
+    config.stats.length > 0 ? config.stats.slice(0, 4) : fallbackStats;
 
   return (
     <section
@@ -143,33 +148,33 @@ export function About() {
               custom={0}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: '-80px' }}
+              viewport={{ once: true, margin: "-80px" }}
               className="text-primary mb-4 font-mono text-xs font-medium tracking-widest uppercase"
             >
-              About Me
+              关于我
             </motion.p>
             <motion.h2
               variants={fadeUp}
               custom={1}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: '-80px' }}
+              viewport={{ once: true, margin: "-80px" }}
               className="section-heading text-foreground mb-6 text-4xl leading-tight md:text-5xl"
             >
-              The person behind
+              用内容打动人，
               <br />
-              <em className="font-light not-italic">the keyboard.</em>
+              <em className="font-light not-italic">用数据证明价值。</em>
             </motion.h2>
             <motion.div
               variants={fadeUp}
               custom={2}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: '-80px' }}
+              viewport={{ once: true, margin: "-80px" }}
               className="mb-8 h-px w-12"
               style={{
                 background:
-                  'linear-gradient(90deg, hsl(var(--primary)), transparent)',
+                  "linear-gradient(90deg, hsl(var(--primary)), transparent)",
               }}
             />
             <motion.p
@@ -177,7 +182,7 @@ export function About() {
               custom={3}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: '-80px' }}
+              viewport={{ once: true, margin: "-80px" }}
               className="text-muted-foreground text-base leading-relaxed font-light whitespace-pre-line"
             >
               {config.about}
@@ -189,7 +194,7 @@ export function About() {
                 custom={4}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, margin: '-80px' }}
+                viewport={{ once: true, margin: "-80px" }}
                 href={`mailto:${config.email}`}
                 className="text-primary mt-6 inline-flex items-center gap-2 text-sm font-medium hover:underline"
                 data-testid="link-email"
@@ -205,7 +210,7 @@ export function About() {
                 custom={5}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, margin: '-80px' }}
+                viewport={{ once: true, margin: "-80px" }}
                 className="border-border mt-8 border-t pt-6"
               >
                 <div className="text-muted-foreground mb-3 flex items-center gap-1.5 font-mono text-xs font-medium tracking-widest uppercase">

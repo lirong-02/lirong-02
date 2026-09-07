@@ -1,14 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from '@/components/ui/dialog';
-import { Copy, CheckCircle, Download, Mail, QrCode, Link2 } from 'lucide-react';
-import { FaLinkedin, FaXTwitter } from 'react-icons/fa6';
-import { config } from '@/portfolio.config';
-import QRCodeLib from 'qrcode';
+} from "@/components/ui/dialog";
+import { Copy, CheckCircle, Download, Mail, QrCode, Link2 } from "lucide-react";
+import { FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { config } from "@/portfolio.config";
+import QRCodeLib from "qrcode";
 
 interface ShareModalProps {
   open: boolean;
@@ -18,7 +18,7 @@ interface ShareModalProps {
 function CopyButton({
   text,
   label,
-  copiedLabel = 'Copied!',
+  copiedLabel = "已复制！",
   compact = false,
 }: {
   text: string;
@@ -39,8 +39,8 @@ function CopyButton({
       onClick={handleCopy}
       className={`border-border hover:bg-secondary hover:border-primary/40 flex items-center gap-1.5 rounded-lg border font-medium transition-all ${
         compact
-          ? 'w-full justify-between px-2.5 py-1.5 text-[11px]'
-          : 'px-3 py-1.5 text-xs'
+          ? "w-full justify-between px-2.5 py-1.5 text-[11px]"
+          : "px-3 py-1.5 text-xs"
       }`}
     >
       <span className="truncate">{copied ? copiedLabel : label}</span>
@@ -54,13 +54,13 @@ function CopyButton({
 }
 
 export function ShareModal({ open, onClose }: ShareModalProps) {
-  const [qrDataUrl, setQrDataUrl] = useState<string>('');
+  const [qrDataUrl, setQrDataUrl] = useState<string>("");
   const [copyLinkDone, setCopyLinkDone] = useState(false);
 
   const portfolioUrl =
-    typeof window !== 'undefined'
-      ? `${window.location.origin}${window.location.pathname.replace(/\/$/, '') || '/'}`
-      : '';
+    typeof window !== "undefined"
+      ? `${window.location.origin}${window.location.pathname.replace(/\/$/, "") || "/"}`
+      : "";
 
   const pageTitle = `${config.name} — ${config.title}`;
 
@@ -69,7 +69,7 @@ export function ShareModal({ open, onClose }: ShareModalProps) {
     QRCodeLib.toDataURL(portfolioUrl, {
       width: 240,
       margin: 2,
-      color: { dark: '#111111', light: '#ffffff' },
+      color: { dark: "#111111", light: "#ffffff" },
     }).then(setQrDataUrl);
   }, [open, portfolioUrl]);
 
@@ -81,9 +81,9 @@ export function ShareModal({ open, onClose }: ShareModalProps) {
 
   const downloadQR = () => {
     if (!qrDataUrl) return;
-    const a = document.createElement('a');
+    const a = document.createElement("a");
     a.href = qrDataUrl;
-    a.download = `${config.name.replace(/\s+/g, '-')}-qr.png`;
+    a.download = `${config.name.replace(/\s+/g, "-")}-qr.png`;
     a.click();
   };
 
@@ -97,12 +97,12 @@ export function ShareModal({ open, onClose }: ShareModalProps) {
     `  <tr><td style="color:#666666;padding-bottom:2px;">${config.title}</td></tr>`,
     config.location
       ? `  <tr><td style="color:#666666;padding-bottom:6px;">${config.location}</td></tr>`
-      : '',
-    `  <tr><td><a href="${portfolioUrl}" style="color:#6366f1;text-decoration:none;">🌐 Portfolio</a>${config.email ? ` &nbsp;·&nbsp; <a href="mailto:${config.email}" style="color:#6366f1;text-decoration:none;">${config.email}</a>` : ''}</td></tr>`,
+      : "",
+    `  <tr><td><a href="${portfolioUrl}" style="color:#6366f1;text-decoration:none;">🌐 Portfolio</a>${config.email ? ` &nbsp;·&nbsp; <a href="mailto:${config.email}" style="color:#6366f1;text-decoration:none;">${config.email}</a>` : ""}</td></tr>`,
     `</table>`,
   ]
     .filter(Boolean)
-    .join('\n');
+    .join("\n");
 
   const embedCode = `<iframe\n  src="${portfolioUrl}"\n  width="100%"\n  height="700"\n  style="border:none;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.08);"\n  title="${pageTitle}"\n></iframe>`;
 
@@ -111,7 +111,7 @@ export function ShareModal({ open, onClose }: ShareModalProps) {
       <DialogContent className="max-h-[85vh] max-w-md overflow-hidden">
         <DialogHeader>
           <DialogTitle className="text-base font-medium">
-            Share your portfolio
+            分享我的作品集
           </DialogTitle>
         </DialogHeader>
 
@@ -119,7 +119,7 @@ export function ShareModal({ open, onClose }: ShareModalProps) {
           {/* ── Portfolio link ─────────────────────────── */}
           <div>
             <p className="text-muted-foreground mb-2 flex items-center gap-1.5 font-mono text-xs tracking-widest uppercase">
-              <Link2 size={11} /> Portfolio link
+              <Link2 size={11} /> 作品集链接
             </p>
             <div className="bg-secondary border-border flex items-center gap-2 rounded-xl border px-3 py-2.5">
               <span className="text-foreground flex-1 truncate font-mono text-xs">
@@ -142,7 +142,7 @@ export function ShareModal({ open, onClose }: ShareModalProps) {
           {/* ── Social share ───────────────────────────── */}
           <div>
             <p className="text-muted-foreground mb-2 font-mono text-xs tracking-widest uppercase">
-              Share on
+              分享到
             </p>
             <div className="flex flex-wrap gap-2">
               <a
@@ -173,7 +173,7 @@ export function ShareModal({ open, onClose }: ShareModalProps) {
           {/* ── QR Code ────────────────────────────────── */}
           <div>
             <p className="text-muted-foreground mb-2 flex items-center gap-1.5 font-mono text-xs tracking-widest uppercase">
-              <QrCode size={11} /> QR code
+              <QrCode size={11} /> 二维码
             </p>
             <div className="bg-secondary border-border flex items-center gap-4 rounded-xl border p-3">
               {qrDataUrl ? (
@@ -187,15 +187,14 @@ export function ShareModal({ open, onClose }: ShareModalProps) {
               )}
               <div className="flex flex-col gap-2">
                 <p className="text-muted-foreground text-xs leading-relaxed">
-                  Put this on your business card, LinkedIn banner, or conference
-                  badge.
+                  可印在名片、简历页眉或线下物料上。
                 </p>
                 <button
                   onClick={downloadQR}
                   disabled={!qrDataUrl}
                   className="border-border hover:bg-background hover:border-primary/40 flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs font-medium transition-all disabled:opacity-40"
                 >
-                  <Download size={12} /> Download PNG
+                  <Download size={12} /> 下载 PNG
                 </button>
               </div>
             </div>
@@ -203,7 +202,7 @@ export function ShareModal({ open, onClose }: ShareModalProps) {
 
           <div>
             <p className="text-muted-foreground mb-2 flex items-center gap-1.5 font-mono text-xs tracking-widest uppercase">
-              <Mail size={11} /> Email signature
+              <Mail size={11} /> 邮件签名
             </p>
             <div className="bg-secondary border-border rounded-xl border p-3">
               <div className="bg-background border-border/60 mb-2.5 rounded-lg border p-2.5 text-xs">

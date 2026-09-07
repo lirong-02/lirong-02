@@ -1,16 +1,16 @@
-import { motion } from 'framer-motion';
-import { BookOpen, ExternalLink } from 'lucide-react';
-import { config } from '@/portfolio.config';
-import { fadeUpVariants } from '@/lib/animation';
+import { motion } from "framer-motion";
+import { BookOpen, ExternalLink } from "lucide-react";
+import { config } from "@/portfolio.config";
+import { fadeUpVariants } from "@/lib/animation";
 
 const fadeUp = fadeUpVariants(44, 0.75, 0.12);
 
 const TYPE_LABELS: Record<string, string> = {
-  journal: 'Journal',
-  conference: 'Conference',
-  preprint: 'Preprint',
-  'book-chapter': 'Book Chapter',
-  workshop: 'Workshop',
+  journal: "Journal",
+  conference: "Conference",
+  preprint: "Preprint",
+  "book-chapter": "Book Chapter",
+  workshop: "Workshop",
 };
 
 export function Publications() {
@@ -25,20 +25,20 @@ export function Publications() {
           custom={0}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: "-80px" }}
           className="text-primary mb-4 font-mono text-xs font-medium tracking-widest uppercase"
         >
-          Research
+          内容作品
         </motion.p>
         <motion.h2
           variants={fadeUp}
           custom={1}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: "-80px" }}
           className="section-heading text-foreground mb-14 text-4xl md:text-5xl"
         >
-          Publications
+          代表报道
         </motion.h2>
 
         <div className="space-y-4">
@@ -49,7 +49,7 @@ export function Publications() {
               custom={i + 2}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: '-60px' }}
+              viewport={{ once: true, margin: "-60px" }}
               className="group border-border bg-background hover:border-primary/30 hover:shadow-primary/5 relative rounded-2xl border p-6 transition-all duration-300 hover:shadow-lg"
             >
               <div className="flex items-start justify-between gap-4">
@@ -64,7 +64,7 @@ export function Publications() {
                     {(pub.venue || pub.year) && (
                       <span className="text-muted-foreground text-xs font-medium">
                         {pub.venue}
-                        {pub.year ? ` · ${pub.year}` : ''}
+                        {pub.year ? ` · ${pub.year}` : ""}
                       </span>
                     )}
                   </div>

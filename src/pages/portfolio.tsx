@@ -1,22 +1,22 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Link2, Check } from 'lucide-react';
-import { Navbar } from '@/components/layout/Navbar';
-import { Hero } from '@/components/sections/Hero';
-import { About } from '@/components/sections/About';
-import { Stats } from '@/components/sections/Stats';
-import { GitHubStats } from '@/components/sections/GitHubStats';
-import { Skills } from '@/components/sections/Skills';
-import { Languages } from '@/components/sections/Languages';
-import { Experience } from '@/components/sections/Experience';
-import { Projects } from '@/components/sections/Projects';
-import { Education } from '@/components/sections/Education';
-import { Certifications } from '@/components/sections/Certifications';
-import { Publications } from '@/components/sections/Publications';
-import { Testimonials } from '@/components/sections/Testimonials';
-import { Contact } from '@/components/sections/Contact';
-import { config } from '@/portfolio.config';
-import type { SectionId } from '@/portfolio.config';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link2, Check } from "lucide-react";
+import { Navbar } from "@/components/layout/Navbar";
+import { Hero } from "@/components/sections/Hero";
+import { About } from "@/components/sections/About";
+import { Stats } from "@/components/sections/Stats";
+import { GitHubStats } from "@/components/sections/GitHubStats";
+import { Skills } from "@/components/sections/Skills";
+import { Languages } from "@/components/sections/Languages";
+import { Experience } from "@/components/sections/Experience";
+import { Projects } from "@/components/sections/Projects";
+import { Education } from "@/components/sections/Education";
+import { Certifications } from "@/components/sections/Certifications";
+import { Publications } from "@/components/sections/Publications";
+import { Testimonials } from "@/components/sections/Testimonials";
+import { Contact } from "@/components/sections/Contact";
+import { config } from "@/portfolio.config";
+import type { SectionId } from "@/portfolio.config";
 
 interface PortfolioPageProps {
   theme: string;
@@ -54,13 +54,13 @@ function SectionWrapper({
     // to current origin. In either case append the section anchor directly —
     // in a real deployed portfolio siteMode="portfolio" there is no #/demo prefix.
     const base =
-      config.siteUrl && !config.siteUrl.includes('yourusername')
-        ? config.siteUrl.replace(/\/$/, '')
-        : `${window.location.origin}${window.location.pathname.replace(/\/$/, '')}`;
+      config.siteUrl && !config.siteUrl.includes("yourusername")
+        ? config.siteUrl.replace(/\/$/, "")
+        : `${window.location.origin}${window.location.pathname.replace(/\/$/, "")}`;
 
     // Preserve the #/demo prefix when we are currently on the demo route
     const currentHash = window.location.hash;
-    const demoPrefix = currentHash.startsWith('#/demo') ? '#/demo' : '';
+    const demoPrefix = currentHash.startsWith("#/demo") ? "#/demo" : "";
     const url = `${base}${demoPrefix}#${id}`;
 
     await navigator.clipboard.writeText(url);
@@ -89,7 +89,7 @@ function SectionWrapper({
                 className="flex items-center gap-1.5 text-green-500"
               >
                 <Check size={11} strokeWidth={2.5} />
-                Copied!
+                已复制！
               </motion.span>
             ) : (
               <motion.span
@@ -101,7 +101,7 @@ function SectionWrapper({
                 className="flex items-center gap-1.5"
               >
                 <Link2 size={11} />
-                Copy link
+                复制链接
               </motion.span>
             )}
           </AnimatePresence>

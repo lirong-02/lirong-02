@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Printer,
   ArrowLeft,
@@ -10,15 +10,15 @@ import {
   Globe,
   ExternalLink,
   Share2,
-} from 'lucide-react';
-import { FaGithub, FaLinkedin } from 'react-icons/fa6';
-import { config } from '@/portfolio.config';
-import { applyThemePalette, hexToPresetPalette } from '@/lib/themes';
-import { ShareModal } from '@/components/ShareModal';
+} from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa6";
+import { config } from "@/portfolio.config";
+import { applyThemePalette, hexToPresetPalette } from "@/lib/themes";
+import { ShareModal } from "@/components/ShareModal";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-type Layout = 'two-column' | 'classic';
+type Layout = "two-column" | "classic";
 
 interface ResumePageProps {
   theme: string;
@@ -34,7 +34,7 @@ const isSectionVisible = (id: string) =>
 
 function ResumeHeader({ compact = false }: { compact?: boolean }) {
   return (
-    <div className={`${compact ? 'mb-4' : 'mb-8'}`}>
+    <div className={`${compact ? "mb-4" : "mb-8"}`}>
       <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <h1 className="text-foreground font-serif text-3xl leading-none font-light tracking-tight">
@@ -67,8 +67,8 @@ function ResumeHeader({ compact = false }: { compact?: boolean }) {
               rel="noopener noreferrer"
               className="hover:text-primary flex items-center gap-1 transition-colors"
             >
-              <FaGithub size={11} />{' '}
-              {config.social.github.replace('https://github.com/', '')}
+              <FaGithub size={11} />{" "}
+              {config.social.github.replace("https://github.com/", "")}
             </a>
           )}
           {config.social.linkedin && (
@@ -78,8 +78,8 @@ function ResumeHeader({ compact = false }: { compact?: boolean }) {
               rel="noopener noreferrer"
               className="hover:text-primary flex items-center gap-1 transition-colors"
             >
-              <FaLinkedin size={11} />{' '}
-              {config.social.linkedin.replace('https://linkedin.com/in/', '')}
+              <FaLinkedin size={11} />{" "}
+              {config.social.linkedin.replace("https://linkedin.com/in/", "")}
             </a>
           )}
           {config.social.website && (
@@ -89,8 +89,8 @@ function ResumeHeader({ compact = false }: { compact?: boolean }) {
               rel="noopener noreferrer"
               className="hover:text-primary flex items-center gap-1 transition-colors"
             >
-              <Globe size={11} />{' '}
-              {config.social.website.replace(/https?:\/\//, '')}
+              <Globe size={11} />{" "}
+              {config.social.website.replace(/https?:\/\//, "")}
             </a>
           )}
         </div>
@@ -110,11 +110,11 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 }
 
 function ExperienceBlock() {
-  if (!isSectionVisible('experience') || !config.experience?.length)
+  if (!isSectionVisible("experience") || !config.experience?.length)
     return null;
   return (
     <div className="mb-6">
-      <SectionLabel>Experience</SectionLabel>
+      <SectionLabel>实习与校园经历</SectionLabel>
       <div className="space-y-4">
         {config.experience.map((job, i) => (
           <div key={i} className="break-inside-avoid">
@@ -124,7 +124,7 @@ function ExperienceBlock() {
                   {job.role}
                 </span>
                 <span className="text-muted-foreground text-xs">
-                  {' '}
+                  {" "}
                   · {job.company}
                 </span>
               </div>
@@ -155,14 +155,14 @@ function ExperienceBlock() {
 }
 
 function ProjectsBlock({ condensed = false }: { condensed?: boolean }) {
-  if (!isSectionVisible('projects') || !config.projects?.length) return null;
+  if (!isSectionVisible("projects") || !config.projects?.length) return null;
   const shown = condensed
     ? config.projects.filter((p) => p.featured)
     : config.projects;
   if (!shown.length) return null;
   return (
     <div className="mb-6">
-      <SectionLabel>Projects</SectionLabel>
+      <SectionLabel>项目作品</SectionLabel>
       <div className="space-y-3">
         {shown.map((proj, i) => (
           <div key={i} className="break-inside-avoid">
@@ -202,10 +202,10 @@ function ProjectsBlock({ condensed = false }: { condensed?: boolean }) {
 }
 
 function SkillsBlock() {
-  if (!isSectionVisible('skills') || !config.skills?.length) return null;
+  if (!isSectionVisible("skills") || !config.skills?.length) return null;
   return (
     <div className="mb-5">
-      <SectionLabel>Skills</SectionLabel>
+      <SectionLabel>专业技能</SectionLabel>
       <div className="space-y-1.5">
         {config.skills.map((cat) => (
           <div
@@ -216,7 +216,7 @@ function SkillsBlock() {
               {cat.category}
             </span>
             <span className="text-muted-foreground">
-              {cat.items.join(', ')}
+              {cat.items.join(", ")}
             </span>
           </div>
         ))}
@@ -226,10 +226,10 @@ function SkillsBlock() {
 }
 
 function EducationBlock() {
-  if (!isSectionVisible('education') || !config.education?.length) return null;
+  if (!isSectionVisible("education") || !config.education?.length) return null;
   return (
     <div className="mb-5">
-      <SectionLabel>Education</SectionLabel>
+      <SectionLabel>教育背景</SectionLabel>
       <div className="space-y-2">
         {config.education.map((edu, i) => (
           <div key={i} className="break-inside-avoid">
@@ -252,11 +252,11 @@ function EducationBlock() {
 }
 
 function CertificationsBlock() {
-  if (!isSectionVisible('certifications') || !config.certifications?.length)
+  if (!isSectionVisible("certifications") || !config.certifications?.length)
     return null;
   return (
     <div className="mb-5">
-      <SectionLabel>Certifications</SectionLabel>
+      <SectionLabel>荣誉奖项</SectionLabel>
       <div className="space-y-1.5">
         {config.certifications.map((cert, i) => (
           <div key={i} className="flex break-inside-avoid items-start gap-2">
@@ -282,7 +282,7 @@ function LanguagesBlock() {
   if (!config.languages?.length) return null;
   return (
     <div className="mb-5">
-      <SectionLabel>Languages</SectionLabel>
+      <SectionLabel>语言</SectionLabel>
       <div className="space-y-1">
         {config.languages.map((lang) => (
           <div
@@ -300,10 +300,10 @@ function LanguagesBlock() {
 
 function PublicationsBlock() {
   const pubs = config.publications ?? [];
-  if (!isSectionVisible('publications') || !pubs.length) return null;
+  if (!isSectionVisible("publications") || !pubs.length) return null;
   return (
     <div className="mb-6">
-      <SectionLabel>Publications</SectionLabel>
+      <SectionLabel>代表报道</SectionLabel>
       <div className="space-y-3">
         {pubs.map((pub, i) => (
           <div key={i} className="break-inside-avoid">
@@ -348,10 +348,10 @@ function PublicationsBlock() {
 }
 
 function AboutBlock() {
-  if (!isSectionVisible('about') || !config.about) return null;
+  if (!isSectionVisible("about") || !config.about) return null;
   return (
     <div className="mb-6">
-      <SectionLabel>Summary</SectionLabel>
+      <SectionLabel>个人简介</SectionLabel>
       <p className="text-muted-foreground text-xs leading-relaxed">
         {config.about}
       </p>
@@ -375,7 +375,7 @@ function TwoColumnLayout() {
         </aside>
         {/* Main */}
         <main className="min-w-0 space-y-0">
-          {isSectionVisible('about') && <AboutBlock />}
+          {isSectionVisible("about") && <AboutBlock />}
           <ExperienceBlock />
           <ProjectsBlock />
           <PublicationsBlock />
@@ -391,7 +391,7 @@ function ClassicLayout() {
   return (
     <div>
       <ResumeHeader compact />
-      {isSectionVisible('about') && <AboutBlock />}
+      {isSectionVisible("about") && <AboutBlock />}
       <ExperienceBlock />
       <ProjectsBlock condensed />
       <PublicationsBlock />
@@ -413,30 +413,30 @@ function ClassicLayout() {
 
 export function ResumePage({ theme, onToggleTheme }: ResumePageProps) {
   const [layout, setLayout] = useState<Layout>(() => {
-    return (localStorage.getItem('resume-layout') as Layout) ?? 'two-column';
+    return (localStorage.getItem("resume-layout") as Layout) ?? "two-column";
   });
   const [shareOpen, setShareOpen] = useState(false);
 
   const setAndStore = (l: Layout) => {
     setLayout(l);
-    localStorage.setItem('resume-layout', l);
+    localStorage.setItem("resume-layout", l);
   };
 
   // Swap accent color to match the selected layout
   useEffect(() => {
     const preset =
-      layout === 'two-column'
+      layout === "two-column"
         ? config.resumeTheme.twoColumn
         : config.resumeTheme.classic;
-    applyThemePalette(preset, theme === 'dark', config.customColors);
+    applyThemePalette(preset, theme === "dark", config.customColors);
     return () => {
       const palette = config.primaryColor
         ? hexToPresetPalette(config.primaryColor)
         : config.customColors;
       applyThemePalette(
-        config.primaryColor ? 'custom' : (config.colorPreset as any),
-        theme === 'dark',
-        palette
+        config.primaryColor ? "custom" : (config.colorPreset as any),
+        theme === "dark",
+        palette,
       );
     };
   }, [layout, theme]);
@@ -451,36 +451,36 @@ export function ResumePage({ theme, onToggleTheme }: ResumePageProps) {
           className="text-muted-foreground hover:text-foreground flex items-center gap-1.5 text-xs font-medium transition-colors"
         >
           <ArrowLeft size={13} />
-          Portfolio
+          返回主页
         </a>
 
         {/* Layout switcher */}
         <div className="bg-secondary border-border flex items-center gap-1 rounded-lg border p-1">
           <button
-            onClick={() => setAndStore('two-column')}
+            onClick={() => setAndStore("two-column")}
             aria-label="Two-column layout"
-            aria-pressed={layout === 'two-column'}
+            aria-pressed={layout === "two-column"}
             className={`flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-medium transition-all ${
-              layout === 'two-column'
-                ? 'bg-background text-foreground shadow-sm'
-                : 'text-muted-foreground hover:text-foreground'
+              layout === "two-column"
+                ? "bg-background text-foreground shadow-sm"
+                : "text-muted-foreground hover:text-foreground"
             }`}
           >
             <Columns2 size={13} />
-            <span className="hidden sm:inline">Two Column</span>
+            <span className="hidden sm:inline">双栏布局</span>
           </button>
           <button
-            onClick={() => setAndStore('classic')}
+            onClick={() => setAndStore("classic")}
             aria-label="Classic layout"
-            aria-pressed={layout === 'classic'}
+            aria-pressed={layout === "classic"}
             className={`flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-medium transition-all ${
-              layout === 'classic'
-                ? 'bg-background text-foreground shadow-sm'
-                : 'text-muted-foreground hover:text-foreground'
+              layout === "classic"
+                ? "bg-background text-foreground shadow-sm"
+                : "text-muted-foreground hover:text-foreground"
             }`}
           >
             <AlignJustify size={13} />
-            <span className="hidden sm:inline">Classic</span>
+            <span className="hidden sm:inline">经典单栏</span>
           </button>
         </div>
 
@@ -492,14 +492,14 @@ export function ResumePage({ theme, onToggleTheme }: ResumePageProps) {
             className="border-border text-muted-foreground hover:text-foreground hover:border-primary/40 flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-xs font-medium transition-all"
           >
             <Share2 size={13} />
-            <span className="hidden sm:inline">Share</span>
+            <span className="hidden sm:inline">分享</span>
           </button>
           <button
             onClick={() => window.print()}
             className="bg-primary text-primary-foreground flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-medium tracking-wide transition-opacity hover:opacity-90"
           >
             <Printer size={13} />
-            Save PDF
+            保存 PDF
           </button>
         </div>
       </div>
@@ -515,7 +515,7 @@ export function ResumePage({ theme, onToggleTheme }: ResumePageProps) {
             transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
             className="bg-background min-h-[1123px] w-full max-w-[794px] rounded-xl p-10 shadow-xl print:min-h-0 print:rounded-none print:bg-white print:p-8 print:shadow-none"
           >
-            {layout === 'two-column' ? <TwoColumnLayout /> : <ClassicLayout />}
+            {layout === "two-column" ? <TwoColumnLayout /> : <ClassicLayout />}
           </motion.div>
         </AnimatePresence>
       </div>

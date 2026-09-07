@@ -1,310 +1,280 @@
 # ╔══════════════════════════════════════════════════════════════════════╗
-# ║              GitVitae — Portfolio Configuration                      ║
-# ║  This is the only file you need to edit.                             ║
-# ║  Run  pnpm check-config  to catch mistakes before deploying.         ║
+# ║  李蓉 · 个人求职作品集配置                                             ║
+# ║  本文件是站点内容的唯一来源。                                           ║
+# ║  运行 pnpm check-config 校验；运行 pnpm generate:resume 生成简历文件。   ║
 # ╚══════════════════════════════════════════════════════════════════════╝
 
-# ╔══════════════════════════════════════════════════════════════════════╗
-# ║  ** FIRST THING TO CHANGE **                                         ║
-# ║                                                                      ║
-# ║  siteMode: "landing"  → shows the GitVitae intro page (default)      ║
-# ║  siteMode: "portfolio" → shows YOUR portfolio                        ║
-# ║                                                                      ║
-# ║  Change it to "portfolio" once you have filled in your details.      ║
-# ╚══════════════════════════════════════════════════════════════════════╝
-siteMode: "landing"   # ← CHANGE THIS to "portfolio"
-siteUrl:  "https://yourusername.github.io"  # ← Your GitHub Pages URL (used for RSS & canonical links)
-showPoweredBy: false  # Set to true to show a small "Made with GitVitae" badge in your footer (helps others discover GitVitae)
+siteMode: "portfolio" # portfolio = 直接展示个人作品集
+siteUrl: "" # 部署后填写实际地址（如 GitHub Pages URL）
+showPoweredBy: false
 
-# ── Identity ───────────────────────────────────────────── (required) ──
-name: "Git Vitae"              # Your name — shown in the header and used as a fallback in the avatar
-title: "Portfolio-Resume Engineer"
-tagline: "I build free portfolios and resumes for everyone."
-email: "git-vitae@proton.me"
-phone: ""                    # Optional — e.g. "+1 (555) 000-1234". Shown in contact section and resume.
-location: "San Francisco, CA"
-avatarUrl: "https://api.dicebear.com/9.x/fun-emoji/svg?seed=Alex&mouth[]=wideSmile&radius=12"  # Demo avatar — replace with your own photo URL (see instructions below)
-# How to add a profile photo (free, no extra account needed):
-#   1. Go to your GitHub repo → click "Add file" → "Upload files"
-#   2. Upload your photo (e.g. avatar.jpg) into a folder called "public/"
-#   3. After committing, open the file on GitHub and copy the raw URL:
-#      https://raw.githubusercontent.com/YOU/your-repo/main/public/avatar.jpg
-#   4. Paste that URL here.
-# Leave empty to show your initials as a styled placeholder.
+# ── 基本信息 ────────────────────────────────────────── (必填) ──
+name: "李蓉"
+title: "求职意向：新媒体运营 · 内容运营"
+tagline: "中央民族大学新闻传播学硕士在读 · 用内容连接品牌与用户，让数据驱动创作"
+email: "lirong10102002@163.com"
+phone: "13384870500" # 展示于头部与联系分区，可点击拨打
+location: "北京 · 每周可实习 4 天"
+avatarUrl: "./avatar.jpg" # 证件照（public/avatar.jpg）
+openToWork: true
 
-# ── Resume download ────────────────────────────────────────────────────
-# Optional: link directly to a hosted PDF (Google Drive, Dropbox, etc.)
-# If left blank the navbar "Resume" button opens the built-in resume page
-# where visitors can use "Save PDF" to print their own copy.
-#
-# How to get a direct download link:
-#   1. Visit /resume in your portfolio, click "Save PDF" -> save the file
-#   2. Upload that PDF to Google Drive / Dropbox and copy the direct link
-#   3. Paste the link below and update resumeFileName accordingly
-#
-# resumeUrl: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID"
-# resumeFileName: "Git_Vitae_Resume.pdf"
-
-# ── Status ─────────────────────────────────────────────────────────────
-openToWork: true         # Shows "Open to Opportunities" banner when true
-
-# ── Theme ──────────────────────────────────────────────────────────────
-defaultTheme: "system"   # Options: light | dark | system
-colorPreset: "indigo"    # Options: indigo | emerald | rose | amber | ocean | slate | custom
-# primaryColor: "#6366f1" # Optional — pick any colour you like and paste its hex code here.
-                           # Overrides colorPreset above. To find a hex code:
-                           #   → Google "colour picker", pick a colour, copy the 6-digit code (e.g. #e11d48)
-                           #   → or grab one from coolors.co / your favourite site's colour
+# ── 主题 ──────────────────────────────────────────────────────────────
+defaultTheme: "light" # light | dark | system（求职站点建议固定浅色）
+colorPreset: "indigo" # 蓝白专业风
 
 resumeTheme:
-  twoColumn: "indigo"    # Accent color for the two-column resume layout
-  classic: "emerald"     # Accent color for the classic resume layout
+  twoColumn: "indigo"
+  classic: "indigo"
 
-contactFormEndpoint: ""  # Optional — paste a Formspree URL (https://formspree.io/f/xxxx)
-                           # or any POST endpoint that accepts {name, email, message}.
-                           # Leave empty to use a pre-filled mailto: link instead.
+contactFormEndpoint: "" # 留空 = 提交时打开邮件客户端预填内容
 
-# ── Section visibility ─────────────────────────────────────────────────
-# Set show: false to hide any section from your portfolio
+# ── 分区显隐 ──────────────────────────────────────────────────────────
 sections:
-  - { id: about,          show: true  }
-  - { id: stats,          show: false }  # Stats already appear as cards in the About section above — enable this only if you want a dedicated full-width stats section
-  - { id: skills,         show: true  }
-  - { id: languages,      show: true  }
-  - { id: experience,     show: true  }
-  - { id: projects,       show: true  }
-  - { id: education,      show: true  }
-  - { id: certifications, show: true  }
-  - { id: publications,   show: false }
-  - { id: testimonials,   show: true  }
-  - { id: contact,        show: true  }
+  - id: about # 关于我 + 数据亮点卡片
+    show: true
+  - id: stats # 数据已并入 About，独立分区关闭
+    show: false
+  - id: skills # 专业技能
+    show: true
+  - id: languages
+    show: false
+  - id: experience # 实习与校园经历
+    show: true
+  - id: projects
+    show: false
+  - id: education # 教育背景
+    show: true
+  - id: certifications # 荣誉奖项
+    show: true
+  - id: publications # 代表报道（人民网作品）
+    show: true
+  - id: testimonials
+    show: false
+  - id: contact # 联系方式
+    show: true
 
-# ── Social links ───────────────────────────── (leave blank to hide) ───
+# ── 社交链接 ───────────────────────────── (留空即隐藏对应图标) ──
 social:
-  github:   "https://github.com/yourusername"
-  linkedin: "https://linkedin.com/in/yourusername"
-  twitter:  ""
-  website:  ""
+  github: ""
+  linkedin: ""
+  twitter: ""
+  website: ""
 
-# ── About ──────────────────────────────────────────────────────────────
-# Use | for multi-line text. Indent each line by 2 spaces.
+# ── 关于我 ────────────────────────────────────────────────────────────
 about: |
-  I'm a portfolio-resume engineer with 5+ years of experience building products
-  that people love. I specialize in React, Node.js, and distributed systems.
-  When I'm not coding, I'm hiking trails or experimenting with new coffee
-  brewing methods.
+  中央民族大学（985）新闻传播学硕士在读，本科毕业于内蒙古大学（211）新闻学专业。
 
+  拥有作业帮内容运营、人民网实习记者、政务新媒体宣传、省级考试院编辑四段实习经历：
+  独立产出 80 条口播成片与 50 篇短视频脚本，50 余篇新闻报道在人民网正式刊发并获首页推荐。
 
-# ── Stats ──────────────────────────────────────────────────────────────
-# Customise each label and value freely — change "Projects Shipped" to
-# "Active Customers", "Happy Clients", "Open Source Stars", etc.
-# Optional fields: prefix (e.g. "$") and suffix (e.g. "+" or "k").
-# Remove all entries or set show: false above to hide this section.
+  擅长把「选题策划 → 内容生产 → 数据复盘」跑通闭环：既能在剪映和 AI 工具里熬夜剪片，
+  也能坐下来把完播率和互动率拆成下一版脚本。求职意向为互联网大厂新媒体运营 / 内容运营岗位。
+
+# ── 数据亮点 ──────────────────────────────────────────────────────────
+# 展示在 About 分区右侧，滚动进入视口时数字滚动动画
 stats:
-  - { label: "Years Experience", value: 5,    suffix: "+" }
-  - { label: "Projects Shipped", value: 20,   suffix: "+" }
-  - { label: "Happy Clients",    value: 50,   suffix: "+" }
-  - { label: "Cups of Coffee",   value: 1200, suffix: ""  }
+  - label: "口播脚本撰写（篇）"
+    value: 50
+  - label: "优质口播成片（条）"
+    value: 80
+  - label: "官方报道刊发（篇）"
+    value: 50
+    suffix: "+"
+  - label: "图文累计阅读"
+    value: 2
+    suffix: "w+"
 
-# Examples of other combinations you can use:
-#   - { label: "Active Users",    value: 10000, suffix: "+" }
-#   - { label: "Revenue",         value: 2,     prefix: "$", suffix: "M+" }
-#   - { label: "Countries",       value: 12,    suffix: ""  }
-
-# ── Languages ──────────────────────────────────────────────────────────
-# level options: Native | Fluent | Conversational | Basic
-languages:
-  - { name: "English",  level: "Native"        }
-  - { name: "Spanish",  level: "Conversational" }
-  - { name: "Mandarin", level: "Basic"          }
-
-# ── Skills ─────────────────────────────────────────────────────────────
+# ── 专业技能 ──────────────────────────────────────────────────────────
 skills:
-  - category: "Frontend"
-    items: [React, TypeScript, Next.js, Tailwind CSS, Framer Motion]
-  - category: "Backend"
-    items: [Node.js, Express, PostgreSQL, Redis, GraphQL]
-  - category: "DevOps"
-    items: [Docker, AWS, CI/CD, Kubernetes, Terraform]
-  - category: "Tools"
-    items: [Git, Figma, Jest, Storybook, Datadog]
+  - category: "内容创作"
+    items: [选题策划, 短视频脚本, 口播文案, 新闻采访, 政务文稿, 内容合规审核]
+  - category: "视频制作"
+    items: [剪映专业版, 数字人口播, 现场实拍品控, AI 内容生成工具]
+  - category: "新媒体运营"
+    items:
+      [公众号排版, 视频号运营, H5 制作, 数据可视化, 数据复盘, 问卷设计与分析]
+  - category: "办公技能"
+    items: [Office 办公套件, 文档处理, 数据归集核对]
 
-# ── Experience ─────────────────────────────────────────────────────────
+# ── 实习与校园经历 ────────────────────────────────────────────────────
 experience:
-  - company: "Acme Corp"
-    role: "Senior Full-Stack Engineer"
-    period: "2022 – Present"
+  - company: "作业帮"
+    role: "内容运营（实习）"
+    period: "2026.06 – 2026.09"
     description: |
-      Led migration of monolithic Rails app to microservices.
-      Reduced p99 latency by 60%. Mentored a team of 4 engineers.
+      独立负责短视频内容的脚本策划与文案撰写，内容覆盖产品推广、品牌价值传递等方向；
+      全程跟进口播视频的现场实拍与内容品控，确保符合平台传播调性；
+      参与周度内容运营复盘，基于播放量、完播率、互动率等核心数据迭代脚本结构与剪辑节奏。
     highlights:
-      - Microservices migration
-      - 60% latency reduction
-      - Team leadership
+      - 50 篇口播脚本
+      - 80 条优质成片
+      - 30 场实拍品控
+      - 剪映 / AI 工具
 
-  - company: "Startup XYZ"
-    role: "Software Engineer"
-    period: "2020 – 2022"
+  - company: "包头市青山区民政局"
+    role: "政务宣传实习生"
+    period: "2026.01 – 2026.02"
     description: |
-      Built real-time collaboration features for a SaaS platform serving
-      50k users. Owned the entire frontend from scratch.
+      独立负责新春拜年宣传片创作，完成脚本策划、实地拍摄、后期剪辑全流程，
+      契合政务宣传风格，成品上线民政局官方新媒体渠道；
+      撰写政协民生提案初稿、政务通知、党日活动材料等多类型正式文稿，
+      掌握党政机关行文规范与内容审核标准，严把政治导向与文字质量关。
     highlights:
-      - Real-time collaboration
-      - 50k users
-      - Frontend ownership
+      - 宣传片全流程
+      - 政务文稿撰写
+      - 官方新媒体渠道上线
 
-  - company: "Freelance"
-    role: "Web Developer"
-    period: "2018 – 2020"
+  - company: "内蒙古自治区教育考试院"
+    role: "编辑实习生"
+    period: "2025.04 – 2025.06"
     description: |
-      Delivered 20+ web projects for small businesses and agencies across
-      e-commerce, marketing, and internal tools.
+      承担省级官方教育招录文件《2025 年内蒙古自治区普通高校招生计划》的
+      全量文字校对与信息处理工作，对标教育政策规范完成内容审核、招生数据核对与信息核查；
+      实习期间综合表现优异，获「成绩突出」官方评价。
     highlights:
-      - 20+ projects
-      - E-commerce
-      - Internal tools
+      - 省级文件全量校对
+      - 招生数据核对
+      - 「成绩突出」官方评价
 
-# ── Projects ───────────────────────────────────────────────────────────
-# Set featured: true to show in the Featured section (max 3 recommended)
-projects:
-  - name: "OpenDesk"
-    description: "An open-source project management tool built with React and Go. 2.3k GitHub stars. Real-time updates via WebSockets."
-    tags: [React, Go, WebSockets, PostgreSQL]
-    liveUrl: "https://opendesk.example.com"
-    repoUrl: "https://github.com/yourusername/opendesk"
-    featured: true
+  - company: "人民网"
+    role: "实习记者"
+    period: "2024.10 – 2025.01"
+    description: |
+      围绕基层发展、教育建设、文化交流等主题，独立完成选题策划、实地采访与文稿撰写，
+      累计正式刊发 50 余篇官方新闻报道，稿件 100% 通过平台内容审核与发布规范，
+      具备成熟的官方文案创作与合规把控能力。
+    highlights:
+      - 50+ 篇正式刊发
+      - 100% 稿件过审
+      - 首页重点推荐 1 篇
+      - 自治区优秀奖 1 篇
 
-  - name: "CodeLens"
-    description: "VS Code extension that uses AI to generate inline documentation. 10k+ installs from the marketplace."
-    tags: [TypeScript, OpenAI, "VS Code API"]
-    liveUrl: ""
-    repoUrl: "https://github.com/yourusername/codelens"
-    featured: true
+  - company: "中央民族大学研究生会"
+    role: "调研权益部干事"
+    period: "2025.09 – 至今"
+    description: |
+      协助宣传工作，收集学生诉求、完成调研问卷设计与数据分析，
+      精准提炼核心诉求与共性问题，形成调研成果。
+    highlights:
+      - 问卷设计
+      - 数据分析
 
-  - name: "PriceWatch"
-    description: "Browser extension that tracks price history on e-commerce sites and alerts users to drops."
-    tags: [JavaScript, "Chrome API", Node.js]
-    liveUrl: "https://pricewatch.example.com"
-    repoUrl: "https://github.com/yourusername/pricewatch"
-    featured: false
+  - company: "2021 级新闻学团支部"
+    role: "团支部书记"
+    period: "2021.09 – 2025.06"
+    description: |
+      负责组织超过 40 次团日活动，及时传达组织通知赢得同学好评；
+      所在团支部获「五四红旗团支部」（2024），个人获团日活动设计大赛二等奖（2021）、优秀奖（2023），
+      具备较强的组织协调能力、团队责任心与集体意识。
+    highlights:
+      - 40+ 次团日活动
+      - 五四红旗团支部
 
-  - name: "Logbook"
-    description: "A minimalist journaling app with end-to-end encryption. Built in a weekend. 500+ users."
-    tags: ["React Native", SQLite, Crypto]
-    liveUrl: ""
-    repoUrl: "https://github.com/yourusername/logbook"
-    featured: false
+  - company: "内蒙古大学青年志愿者协会"
+    role: "宣传部干事"
+    period: "2021.09 – 2022.06"
+    description: |
+      进行 30+ 篇图文推送的拍剪、编辑、排版工作，推文累计浏览量达 2w+；
+      熟练掌握排版、H5、二维码、VR、数据可视化等制作方法；
+      内容通过公众号、线下社群等多渠道分发，覆盖校内师生超千人次。
+    highlights:
+      - 30+ 篇图文推送
+      - 2w+ 累计阅读
+      - H5 / 数据可视化
 
-# ── Education ──────────────────────────────────────────────────────────
+# ── 教育背景 ──────────────────────────────────────────────────────────
 education:
-  - institution: "University of California, Berkeley"
-    degree: "B.S. Computer Science"
-    period: "2014 – 2018"
+  - institution: "中央民族大学（985）· 新闻传播学院"
+    degree: "新闻传播学（广告与传媒经济） · 硕士在读"
+    period: "2025.09 – 2028.06"
+  - institution: "内蒙古大学（211）· 文学与新闻传播学院"
+    degree: "新闻学 · 本科 · GPA 3.84/4 · 校级一等 / 二等 / 三等奖学金"
+    period: "2021.09 – 2025.06"
 
-# ── Certifications ─────────────────────────────────────────────────────
+# ── 代表报道（人民网实习作品）──────────────────────────────────────────
+publications:
+  - title: "草原村排：一边生活，一边热爱"
+    authors: "独立完成选题策划、实地采访与文稿撰写"
+    venue: "人民网首页重点推荐"
+    year: "2025"
+    url: ""
+    type: "重点推荐"
+    tags: [基层发展, 全民健身, 首页推荐]
+
+  - title: "我要把这株象征友谊的中国葡萄苗带回家乡"
+    authors: "独立完成选题策划、实地采访与文稿撰写"
+    venue: "人民网国际频道"
+    year: "2025"
+    url: ""
+    type: "国际传播"
+    tags: [国际传播, 文化交流, 友谊故事]
+
+  - title: "呼和浩特市赛罕区后窑子村有机胡萝卜喜获丰收"
+    authors: "独立完成选题策划、实地采访与文稿撰写"
+    venue: "获内蒙古自治区优秀奖"
+    year: "2024"
+    url: ""
+    type: "获奖作品"
+    tags: [乡村振兴, 丰收故事, 获奖报道]
+
+# ── 荣誉奖项 ──────────────────────────────────────────────────────────
 certifications:
-  - title: "AWS Certified Solutions Architect – Associate"
-    issuer: "Amazon Web Services"
-    date: "2023"
-    credentialUrl: "https://aws.amazon.com/verification"
-    badgeUrl: "https://images.credly.com/size/340x340/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png"
-    tags: [Cloud, Architecture, AWS]
-
-  - title: "Professional Scrum Master I"
-    issuer: "Scrum.org"
-    date: "2022"
-    credentialUrl: "https://www.scrum.org/certificates"
-    badgeUrl: "https://images.credly.com/size/340x340/images/a2790314-008a-4c3d-9e11-2a8f48155adc/image.png"
-    tags: [Agile, Scrum, Leadership]
-
-  - title: "Google Professional Data Engineer"
-    issuer: "Google Cloud"
-    date: "2021"
+  - title: "优秀毕业生"
+    issuer: "内蒙古大学 · 校级"
+    date: "2025"
     credentialUrl: ""
     badgeUrl: ""
-    tags: [Data, GCP, BigQuery]
+    tags: []
 
+  - title: "校级三好学生"
+    issuer: "内蒙古大学 · 校级"
+    date: ""
+    credentialUrl: ""
+    badgeUrl: ""
+    tags: []
 
-# ── Publications ───────────────────────────────────────────────────────
-# Optional — ideal for researchers, academics, and technical writers.
-# type options: conference | journal | preprint | book-chapter | workshop
-publications:
-  - title: "Scaling Real-Time Collaboration in Distributed Systems"
-    authors: "Rivera A, Chen L, Patel S"
-    venue: "USENIX ATC 2023"
-    year: "2023"
-    url: "https://arxiv.org/abs/example"
-    type: "conference"
-    tags: [distributed-systems, real-time, scalability]
+  - title: "优秀团干部 · 优秀学生干部"
+    issuer: "内蒙古大学 · 校级"
+    date: ""
+    credentialUrl: ""
+    badgeUrl: ""
+    tags: []
 
-  - title: "Micro-Frontend Architecture Patterns for Large-Scale SPAs"
-    authors: "Rivera A"
-    venue: "IEEE Software"
-    year: "2022"
-    url: ""
-    type: "journal"
-    tags: [frontend, architecture, micro-frontends]
+  - title: "优秀团员 · 「奉献之星」荣誉称号"
+    issuer: "内蒙古大学 · 校级"
+    date: ""
+    credentialUrl: ""
+    badgeUrl: ""
+    tags: []
 
-# ── Testimonials ───────────────────────────────────────────────────────
-testimonials:
-  - name: "Sarah Chen"
-    title: "Engineering Manager"
-    company: "Acme Corp"
-    relationship: "Manager"   # e.g. Manager | Colleague | Client | Mentor
-    quote: |
-      Alex is one of the most thoughtful engineers I've had the pleasure of
-      working with. They consistently delivered high-quality work on time and
-      elevated the entire team's standards.
-    photoUrl: ""              # URL to headshot — leave empty for initials
+  - title: "「五四红旗团支部」"
+    issuer: "任团支部书记期间带领支部获评"
+    date: "2024"
+    credentialUrl: ""
+    badgeUrl: ""
+    tags: [集体荣誉]
 
-  - name: "James Okafor"
-    title: "Senior Product Designer"
-    company: "Startup XYZ"
-    relationship: "Colleague"
-    quote: |
-      Working with Alex was a joy. They have a rare ability to translate vague
-      product requirements into clean, elegant code. Our collaboration made the
-      product significantly better.
-    photoUrl: ""
+  - title: "团日活动设计大赛二等奖 · 优秀奖"
+    issuer: "内蒙古大学"
+    date: "2021 / 2023"
+    credentialUrl: ""
+    badgeUrl: ""
+    tags: [赛事获奖]
 
-  - name: "Priya Nair"
-    title: "CTO"
-    company: "FinTech Ventures"
-    relationship: "Client"
-    quote: |
-      Alex delivered the project ahead of schedule and the code quality was
-      exceptional. They communicated proactively, flagged risks early, and were
-      genuinely invested in our success.
-    photoUrl: ""
+  - title: "综合奖学金（一等 / 二等 / 三等）"
+    issuer: "内蒙古大学 · GPA 3.84/4"
+    date: ""
+    credentialUrl: ""
+    badgeUrl: ""
+    tags: []
 
-# ── Analytics (optional, always free) ──────────────────────────────────────
-# Two ways to track who visits your portfolio — both free, no credit card:
-#
-# 1. GitHub built-in traffic (zero setup — already there!)
-#    Go to your repository → Insights → Traffic.
-#    Shows unique visitors, page views, and top referrers for the last 14 days.
-#
-# 2. GoatCounter (more detail, privacy-friendly, free forever for personal use)
-#    Sign up at https://www.goatcounter.com — you'll get a short code, e.g. "janedoe"
-#    Uncomment the two lines below and replace "yourcode" with your GoatCounter code:
-#
-# analytics:
-#   goatcounterCode: "yourcode"
+# ── 联系分区文案 ──────────────────────────────────────────────────────
+contactHeading: "联系我"
+contactTitle: "期待与你\n共同创造好内容"
+contactDescription: "正在寻找新媒体运营 / 内容运营实习机会，可每周实习 4 天、随时到岗。欢迎 HR 与猎头联系，也欢迎同行朋友交流。"
 
-# ── Blog ─────────────────────────────────────────────────────────────────────
-# Drop any .md file into the blog/ folder — it becomes a post automatically.
-# Each post starts with a small block called "frontmatter" (between --- lines):
-#
-#   ---
-#   title: "My Post Title"
-#   date: "2025-01-15"
-#   tags: [life, tech]
-#   excerpt: "One sentence that appears on the listing page."
-#   ---
-#
-# Then write your post in plain Markdown below the closing ---.
-# See the sample posts in blog/ to get started.
+# ── 博客 ──────────────────────────────────────────────────────────────
 blog:
-  enabled: true
-  title: "Blog"
-  description: "Thoughts, stories and ideas — everything in one place."
+  enabled: false
+  title: "博客"
+  description: ""
