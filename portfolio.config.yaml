@@ -5,7 +5,7 @@
 # ╚══════════════════════════════════════════════════════════════════════╝
 
 siteMode: "portfolio" # portfolio = 直接展示个人作品集
-siteUrl: "" # 部署后填写实际地址（如 GitHub Pages URL）
+siteUrl: "https://lirong-02.github.io/lirong-02" # GitHub Pages 地址
 showPoweredBy: false
 
 # ── 基本信息 ────────────────────────────────────────── (必填) ──
