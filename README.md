@@ -1,170 +1,93 @@
-# <p align="center">GitVitae</p>
+<h1 align="center">李蓉 · 求职作品集</h1>
 
 <p align="center">
-  <a href="https://deepwiki.com/git-vitae/git-vitae.github.io">
-    <img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki" />
-  </a>
+  <a href="https://lirong-02.github.io/lirong-02/"><strong>🌐 在线访问</strong></a> ·
+  <a href="https://lirong-02.github.io/lirong-02/#/resume"><strong>📄 在线简历（可导出 PDF）</strong></a>
 </p>
 
-A free, open-source portfolio template for developers and job seekers. Edit one YAML file, push to GitHub, get a live portfolio — no account needed, no hosting fees, no framework knowledge required.
-
-**Live demo:** [git-vitae.github.io](https://git-vitae.github.io)
-
----
-
-## How it works
-
-```
-github.com/git-vitae/git-vitae.github.io
-         ↓  Use this template
-github.com/YOU/my-portfolio
-         ↓  Edit portfolio.config.yaml
-         ↓  git push
-YOU.github.io/my-portfolio   ← live in ~2 minutes
-```
+<p align="center">
+  <em>中央民族大学（985）新闻传播学硕士在读 · 用内容连接品牌与用户，让数据驱动创作</em>
+</p>
 
 ---
 
-## Quick start (3 steps)
+## 👋 关于我
 
-### 1. Create your repo from this template
+求职意向：**新媒体运营 / 内容运营**（可每周实习 4 天，随时到岗）。
 
-Click the green **"Use this template"** button at the top of this page → **"Create a new repository"**.
+拥有作业帮、人民网、足球频道、政务新媒体、省级考试院**五段实习经历**，
+擅长把「选题策划 → 内容生产 → 数据复盘」跑通闭环。
 
-> **Naming tip:** Name it `yourusername.github.io` and your portfolio lives at the root (`yourusername.github.io`). Name it anything else (e.g. `portfolio`) and it lives at `yourusername.github.io/portfolio`.
+## 📊 数据亮点
 
-### 2. Enable GitHub Pages
+| 数据 | 成果 |
+| --- | --- |
+| **50 篇** | 口播短视频脚本撰写（作业帮） |
+| **80 条** | 优质教育类口播成片产出（含数字人口播） |
+| **50+ 篇** | 官方新闻报道在人民网正式刊发，100% 过审 |
+| **首页推荐** | 《草原村排》获人民网首页重点推荐 |
+| **2w+** | 校园公众号图文累计阅读量 |
 
-In your new repo: **Settings → Pages → Source → GitHub Actions**. Save.
+## 💼 实习经历
 
-### 3. Edit `portfolio.config.yaml` and push
+| 单位 | 岗位 | 时间 |
+| --- | --- | --- |
+| 作业帮 | 内容运营（实习） | 2026.06 – 2026.09 |
+| 包头市青山区民政局 | 政务宣传实习生 | 2026.01 – 2026.02 |
+| 内蒙古自治区教育考试院 | 编辑实习生 | 2025.04 – 2025.06 |
+| 人民网 | 实习记者 | 2024.10 – 2025.01 |
+| 足球频道 | 新媒体编辑（实习） | 2023.07 |
 
-This is the **only file you need to touch.** Every field has a comment. Edit it on GitHub directly (click the pencil icon), commit, and your site builds automatically.
+教育背景：中央民族大学（985）新闻传播学硕士在读 · 内蒙古大学（211）新闻学本科（GPA 3.84/4）。
 
-```yaml
-name: "Your Name"
-title: "Software Engineer"
-email: "you@example.com"
-openToWork: true        # shows the "Open to Opportunities" banner
+## 🎨 作品集亮点
 
-about: |
-  Write 2-3 sentences about yourself here.
-  The pipe symbol lets you write across multiple lines.
+站点内「作品集」分区收录可在线播放 / 查看的完整作品：
 
-social:
-  github: "https://github.com/yourusername"
-  linkedin: "https://linkedin.com/in/yourusername"
-```
+- 🎬 **视频作品**：政务宣传片、AI 数字人口播、千川信息流广告（横竖屏分组呈现）
+- 📰 **代表报道**：人民网刊发报道 3 篇 + 足球频道图文推送 6 篇（附原文链接）
+- 📸 **摄影作品**：纪实 / 人像 / 民族服饰 11 幅（瀑布流呈现）
+- 🖼 **海报设计**：校园活动宣传海报 4 幅
+- 📱 **视频号运营**：人民网视频号作品 38 条（完整清单）
 
-Your live URL appears in **Settings → Pages** once the first deploy finishes (~2 min).
+## 📮 联系方式
 
----
-
-## What you get
-
-- Single YAML config — no code to touch
-- All sections: About, Skills, Experience, Projects, Education, Certifications, Testimonials, Contact
-- Dark / light / system theme + 6 color presets (`indigo`, `emerald`, `rose`, `amber`, `sky`, `violet`)
-- Resume download in PDF (print), plain text, and JSON Resume formats
-- Schema.org structured data markup (good for SEO and AI tools)
-- Share modal: QR code, social links, email signature snippet, embeddable card
-- "Open to work" banner (flip `openToWork: true`)
-- Smooth scroll, animated section reveals, custom cursor
-- Fully responsive — mobile, tablet, desktop
-- Zero backend — static files, free forever on GitHub Pages
+- 📱 手机：[133-8487-0500](tel:13384870500)
+- 📧 邮箱：[lirong10102002@163.com](mailto:lirong10102002@163.com)
 
 ---
 
-## Config reference
+## 🛠 网站技术实现
 
-| Field | Required | Description |
-|-------|----------|-------------|
-| `name` | Yes | Your full name |
-| `title` | Yes | Job title or headline |
-| `email` | Yes | Contact email |
-| `tagline` | No | One-line summary shown on the hero |
-| `location` | No | City, Country |
-| `avatarUrl` | No | URL to your photo — empty shows initials |
-| `openToWork` | No | `true` shows the "Open to Opportunities" banner |
-| `theme.defaultTheme` | No | `light`, `dark`, or `system` |
-| `theme.colorPreset` | No | `indigo` `emerald` `rose` `amber` `sky` `violet` |
-| `social.*` | No | Any key renders as a link icon (github, linkedin, twitter, …) |
-| `about` | Yes | 2–5 sentence bio (use `\|` for multi-line) |
-| `skills` | No | List of categories, each with a list of skill names |
-| `experience` | No | Work history entries |
-| `projects` | No | Portfolio projects (`featured: true` pins to top) |
-| `education` | No | Degrees or courses |
-| `certifications` | No | Certs with optional credential URL |
-| `testimonials` | No | Quotes from colleagues or managers |
-
-See `portfolio.config.yaml` for a fully-commented example of every field and every option.
-
----
-
-## Adding a profile photo
-
-Set `avatarUrl` to any public image URL:
-
-```yaml
-avatarUrl: "https://github.com/yourusername.png"
-```
-
-GitHub profile pictures work perfectly — just swap in your username.
-
----
-
-## Custom domain
-
-1. Add a `CNAME` file to the repo root containing your domain (e.g. `jane.dev`)
-2. Add a CNAME DNS record pointing to `yourusername.github.io`
-3. In **Settings → Pages**, enter your custom domain
-
----
-
-## Validate before you push (optional)
-
-If you have Node.js installed locally:
+本站基于开源项目 [GitVitae](https://github.com/git-vitae/git-vitae.github.io) 构建，
+内容与代码分离——**所有文案数据集中在 `portfolio.config.yaml`**，改配置即改站点。
 
 ```bash
-git clone https://github.com/you/your-portfolio
-cd your-portfolio
-pnpm install
-pnpm check-config   # catches typos and missing fields
-pnpm dev            # preview at http://localhost:3000
+pnpm install            # 安装依赖
+pnpm dev                # 本地开发（localhost:3000）
+pnpm check-config       # 校验配置
+pnpm generate:resume    # 重新生成简历 JSON / Markdown
+pnpm build              # 生产构建（自动先生成简历文件）
 ```
 
----
+- **技术栈**：React 19 · Vite 7 · Tailwind CSS 4 · Framer Motion · Wouter（Hash 路由）
+- **部署**：GitHub Actions 自动构建 → GitHub Pages
+- **简历导出**：在线简历页支持双栏 / 经典两种排版，一键「保存 PDF」
+- **特色功能**：视频横竖屏分组排布、摄影瀑布流、数据滚动动画、明暗主题切换
 
-## Getting updates
+## 📁 目录速览
 
-**Stay notified:** click **Watch → Custom → Releases only** on the [GitVitae repo](https://github.com/git-vitae/git-vitae.github.io) and GitHub will email you whenever a new version ships.
-
-When you're ready to pull an update into your portfolio, run:
-
-```bash
-pnpm upgrade-template
+```text
+├── portfolio.config.yaml   # 站点内容唯一来源（简历/经历/作品数据）
+├── public/
+│   ├── works/              # 作品素材（视频/摄影/海报/清单页）
+│   └── resume.json|md      # 由配置自动生成的简历文件
+├── src/
+│   ├── components/sections/  # 各内容分区组件
+│   └── pages/resume/         # 在线简历页（可打印导出）
+└── .github/workflows/        # GitHub Pages 自动部署
 ```
 
-That's it. The script adds GitVitae as an upstream remote (once), fetches the latest code, and merges it — without touching your `portfolio.config.yaml`. Follow it with `pnpm install && git push` to deploy the update.
+## 📄 License
 
-Conflicts are extremely rare. They only occur if GitVitae renames a field in `portfolio.config.yaml` that you've already filled in. The script will tell you exactly what to do if that happens.
-
----
-
-## FAQ
-
-**Do I need to know React or JavaScript?** No. You only edit `portfolio.config.yaml`.
-
-**Is this free?** Yes. GitHub Pages is free for public repos. GitVitae is MIT licensed.
-
-**Can I make my repo private?** GitHub Pages requires a paid plan for private repos.
-
----
-
-## Built with
-
-React · Vite · TypeScript · Tailwind CSS · Framer Motion
-
----
-
-*Built with [GitVitae](https://github.com/git-vitae/git-vitae.github.io) — MIT License*
+站点内容 © 李蓉。模板部分遵循 [GitVitae](https://github.com/git-vitae/git-vitae.github.io) 开源协议。
