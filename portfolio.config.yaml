@@ -11,7 +11,7 @@ showPoweredBy: false
 # ── 基本信息 ────────────────────────────────────────── (必填) ──
 name: "李蓉"
 title: "求职意向：新媒体运营 · 内容运营"
-tagline: "中央民族大学新闻传播学硕士在读 · 用内容连接品牌与用户，让数据驱动创作"
+tagline: "中央民族大学新闻传播学硕士在读\n用内容连接品牌与用户，让数据驱动创作"
 email: "lirong10102002@163.com"
 phone: "13384870500" # 展示于头部与联系分区，可点击拨打
 location: "北京 · 每周可实习 4 天"
@@ -40,8 +40,8 @@ sections:
     show: false
   - id: experience # 实习与校园经历
     show: true
-  - id: projects
-    show: false
+  - id: projects # 作品集（视频 / 摄影 / 海报）
+    show: true
   - id: education # 教育背景
     show: true
   - id: certifications # 荣誉奖项
@@ -64,7 +64,7 @@ social:
 about: |
   中央民族大学（985）新闻传播学硕士在读，本科毕业于内蒙古大学（211）新闻学专业。
 
-  拥有作业帮内容运营、人民网实习记者、政务新媒体宣传、省级考试院编辑四段实习经历：
+  拥有作业帮内容运营、人民网实习记者、足球频道体育新媒体、政务新媒体宣传、省级考试院编辑五段实习经历：
   独立产出 80 条口播成片与 50 篇短视频脚本，50 余篇新闻报道在人民网正式刊发并获首页推荐。
 
   擅长把「选题策划 → 内容生产 → 数据复盘」跑通闭环：既能在剪映和 AI 工具里熬夜剪片，
@@ -149,6 +149,19 @@ experience:
       - 首页重点推荐 1 篇
       - 自治区优秀奖 1 篇
 
+  - company: "足球频道"
+    role: "新媒体编辑（实习）"
+    period: "2023.07"
+    description: |
+      参与体育新媒体公众号「足球频道」的日常内容采编与发布，围绕青少年足球赛事、
+      体育公益活动与全民健身赛事完成选题策划、素材整理、图文撰写与排版发布；
+      实习期间累计发布 6 篇图文推送，完成「希望工程·蒙牛少年足球夏令营」
+      等主题活动从开营到闭营的全程跟踪报道。
+    highlights:
+      - 6 篇图文推送
+      - 体育赛事全程报道
+      - 公益活动纪实
+
   - company: "中央民族大学研究生会"
     role: "调研权益部干事"
     period: "2025.09 – 至今"
@@ -216,6 +229,259 @@ publications:
     url: ""
     type: "获奖作品"
     tags: [乡村振兴, 丰收故事, 获奖报道]
+
+  - title: "2023 希望工程·蒙牛少年足球夏令营在呼和浩特开营"
+    authors: "参与采编发布"
+    venue: "足球频道公众号"
+    year: "2023.07"
+    url: "https://mp.weixin.qq.com/s/-1Lt-oER9-Qp438Ow_A_NQ"
+    type: "图文推送"
+    tags: [青少年足球, 公益夏令营]
+
+  - title: "伊林青少年足球俱乐部载誉而归"
+    authors: "参与采编发布"
+    venue: "足球频道公众号"
+    year: "2023.07"
+    url: "https://mp.weixin.qq.com/s/YWd4W0bWdjNLkhb3RAYjpQ"
+    type: "图文推送"
+    tags: [青少年足球, 国际邀请赛]
+
+  - title: "第一届全国机关企事业单位健身气功·八段锦交流比赛大会开幕"
+    authors: "参与采编发布"
+    venue: "足球频道公众号"
+    year: "2023.07"
+    url: "https://mp.weixin.qq.com/s/WWXI9CRs9VK1wigIu-lBMw"
+    type: "图文推送"
+    tags: [全民健身, 赛事报道]
+
+  - title: "2023 希望工程·蒙牛少年足球公益行活动走进草原"
+    authors: "参与采编发布"
+    venue: "足球频道公众号"
+    year: "2023.07"
+    url: "https://mp.weixin.qq.com/s/Sn3_4NM1HQzUYvbQxbtaMA"
+    type: "图文推送"
+    tags: [公益足球, 草原纪实]
+
+  - title: "亮剑少年李硕丹"
+    authors: "参与采编发布"
+    venue: "足球频道公众号"
+    year: "2023.07"
+    url: "https://mp.weixin.qq.com/s/2hOoF2W7SDF-o5NCNBN2SA"
+    type: "人物特写"
+    tags: [青少年足球, 人物报道]
+
+  - title: "2023 希望工程·蒙牛少年足球夏令营在呼和浩特落下帷幕"
+    authors: "参与采编发布"
+    venue: "足球频道公众号"
+    year: "2023.07"
+    url: "https://mp.weixin.qq.com/s/i3maKlbEm1idi1-Ff3J0dA"
+    type: "图文推送"
+    tags: [青少年足球, 闭营报道]
+
+# ── 作品集 ────────────────────────────────────────────────────────────
+# category 用于分组展示；mediaType: video | image | link；featured 项同步出现在简历 PDF 页
+projects:
+  - name: "新春拜年宣传片 · 包头市青山区民政局"
+    category: "视频作品"
+    description: "独立完成脚本策划、实地拍摄与后期剪辑全流程的政务宣传片成品，上线民政局官方新媒体渠道。"
+    mediaType: video
+    mediaUrl: "./works/minzheng.mp4"
+    orientation: landscape
+    posterUrl: "./works/minzheng.jpg"
+    tags: [脚本策划, 实地拍摄, 剪映剪辑]
+    featured: true
+
+  - name: "AI 数字人口播短视频 · 节选一"
+    category: "视频作品"
+    description: "作业帮实习期间运用 AI 内容生成工具与剪映制作的数字人口播成片。"
+    mediaType: video
+    mediaUrl: "./works/ai/ai-1.mp4"
+    orientation: portrait
+    posterUrl: "./works/ai/ai-1.jpg"
+    tags: [AI 数字人, 剪映, 口播]
+    featured: true
+
+  - name: "AI 数字人口播短视频 · 节选二"
+    category: "视频作品"
+    description: "作业帮实习期间运用 AI 内容生成工具与剪映制作的数字人口播成片。"
+    mediaType: video
+    mediaUrl: "./works/ai/ai-2.mp4"
+    orientation: portrait
+    posterUrl: "./works/ai/ai-2.jpg"
+    tags: [AI 数字人, 剪映, 口播]
+
+  - name: "AI 数字人口播短视频 · 节选三"
+    category: "视频作品"
+    description: "作业帮实习期间运用 AI 内容生成工具与剪映制作的数字人口播成片。"
+    mediaType: video
+    mediaUrl: "./works/ai/ai-3.mp4"
+    orientation: portrait
+    posterUrl: "./works/ai/ai-3.jpg"
+    tags: [AI 数字人, 剪映, 口播]
+
+  - name: "AI 数字人口播短视频 · 节选四"
+    category: "视频作品"
+    description: "作业帮实习期间运用 AI 内容生成工具与剪映制作的数字人口播成片。"
+    mediaType: video
+    mediaUrl: "./works/ai/ai-4.mp4"
+    orientation: portrait
+    posterUrl: "./works/ai/ai-4.jpg"
+    tags: [AI 数字人, 剪映, 口播]
+
+  - name: "人民网视频号作品（38 条）"
+    category: "视频作品"
+    description: "人民网实习期间参与视频号内容制作，累计 38 条；点击查看完整清单，单条需在微信内打开观看。"
+    mediaType: link
+    liveUrl: "./works/renmin-sph.html"
+    tags: [视频号, 短视频运营]
+
+  - name: "千川信息流广告 · 不及格篇（秋1期）"
+    category: "视频作品"
+    description: "作业帮实习期间参与制作的千川信息流广告成片，竖屏版式适配投放渠道。"
+    mediaType: video
+    mediaUrl: "./works/qianchuan/qianchuan-1.mp4"
+    orientation: portrait
+    posterUrl: "./works/qianchuan/qianchuan-1.jpg"
+    tags: [信息流广告, 竖屏短视频]
+
+  - name: "千川信息流广告 · 强IP头疼篇（秋6期 · 实拍）"
+    category: "视频作品"
+    description: "作业帮实习期间参与实拍与制作的千川信息流广告成片。"
+    mediaType: video
+    mediaUrl: "./works/qianchuan/qianchuan-2.mp4"
+    orientation: portrait
+    posterUrl: "./works/qianchuan/qianchuan-2-cover.jpg"
+    tags: [信息流广告, 实拍]
+
+  - name: "千川信息流广告 · 强痛点分数篇（秋6期 · 实拍）"
+    category: "视频作品"
+    description: "作业帮实习期间参与实拍与制作的千川信息流广告成片。"
+    mediaType: video
+    mediaUrl: "./works/qianchuan/qianchuan-3.mp4"
+    orientation: portrait
+    posterUrl: "./works/qianchuan/qianchuan-3-cover.jpg"
+    tags: [信息流广告, 实拍]
+
+  - name: "雪中母女"
+    category: "摄影作品"
+    description: "冬日雪天人像摄影。"
+    mediaType: image
+    mediaUrl: "./works/photo/winter-mother-child.png"
+    tags: []
+
+  - name: "蒙古袍"
+    category: "摄影作品"
+    description: "蒙古族传统服饰人像摄影。"
+    mediaType: image
+    mediaUrl: "./works/photo/mongolia-robe.png"
+    tags: []
+
+  - name: "老街即景"
+    category: "摄影作品"
+    description: "呼和浩特街头纪实摄影。"
+    mediaType: image
+    mediaUrl: "./works/photo/street-life.png"
+    tags: []
+
+  - name: "冰场夏日"
+    category: "摄影作品"
+    description: "室外冰场纪实摄影。"
+    mediaType: image
+    mediaUrl: "./works/photo/ice-rink.png"
+    tags: []
+
+  - name: "人像 · 范"
+    category: "摄影作品"
+    description: "人像摄影作品。"
+    mediaType: image
+    mediaUrl: "./works/photo/portrait-fan.png"
+    tags: []
+
+  - name: "摄影习作 · 02"
+    category: "摄影作品"
+    description: "摄影作品。"
+    mediaType: image
+    mediaUrl: "./works/photo/photo-02.png"
+    tags: []
+
+  - name: "摄影习作 · 03"
+    category: "摄影作品"
+    description: "摄影作品。"
+    mediaType: image
+    mediaUrl: "./works/photo/photo-03.png"
+    tags: []
+
+  - name: "摄影习作 · 05"
+    category: "摄影作品"
+    description: "摄影作品。"
+    mediaType: image
+    mediaUrl: "./works/photo/photo-05.png"
+    tags: []
+
+  - name: "摄影习作 · 06"
+    category: "摄影作品"
+    description: "摄影作品。"
+    mediaType: image
+    mediaUrl: "./works/photo/photo-06.png"
+    tags: []
+
+  - name: "摄影习作 · 07"
+    category: "摄影作品"
+    description: "摄影作品。"
+    mediaType: image
+    mediaUrl: "./works/photo/photo-07.png"
+    tags: []
+
+  - name: "摄影习作 · 08"
+    category: "摄影作品"
+    description: "摄影作品。"
+    mediaType: image
+    mediaUrl: "./works/photo/photo-08.png"
+    tags: []
+
+  - name: "活动需求与满意度调研海报"
+    category: "海报设计"
+    description: "中央民族大学研究生会调研活动宣传海报，调研问卷设计与宣传物料一体落地。"
+    mediaType: image
+    mediaUrl: "./works/poster/survey.png"
+    tags: [海报设计, 研究生会]
+
+  - name: "「艺览研风」随机舞蹈活动海报"
+    category: "海报设计"
+    description: "中央民族大学研究生会校园文化活动宣传海报。"
+    mediaType: image
+    mediaUrl: "./works/poster/dance.png"
+    tags: [海报设计, 研究生会]
+
+  - name: "校园活动海报 · 03"
+    category: "海报设计"
+    description: "校园活动宣传海报设计。"
+    mediaType: image
+    mediaUrl: "./works/poster/poster-11.png"
+    tags: [海报设计]
+
+  - name: "校园活动海报 · 04"
+    category: "海报设计"
+    description: "校园活动宣传海报设计。"
+    mediaType: image
+    mediaUrl: "./works/poster/poster-12.png"
+    tags: [海报设计]
+
+  - name: "摄影课程作品集锦"
+    category: "课程作品"
+    description: "摄影课程作业，纪实与人像拍摄练习合集。"
+    mediaType: video
+    mediaUrl: "./works/course/photography.mp4"
+    posterUrl: "./works/course/photography.jpg"
+    tags: [摄影, 课程作业]
+
+  - name: "音视频制作课程作品"
+    category: "课程作品"
+    description: "音视频制作课程作业成片。"
+    mediaType: video
+    mediaUrl: "./works/course/av-production.mp4"
+    posterUrl: "./works/course/av-production.jpg"
+    tags: [音视频制作, 课程作业]
 
 # ── 荣誉奖项 ──────────────────────────────────────────────────────────
 certifications:

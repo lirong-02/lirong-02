@@ -24,7 +24,7 @@ const SECTION_LABELS: Record<string, string> = {
   skills: "技能",
   languages: "语言",
   experience: "经历",
-  projects: "项目",
+  projects: "作品集",
   education: "教育",
   certifications: "荣誉",
   publications: "代表报道",

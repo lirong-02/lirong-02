@@ -58,7 +58,7 @@ function TypewriterText({ text }: { text: string }) {
   }, [text]);
 
   return (
-    <p className="text-muted-foreground max-w-xl text-base leading-relaxed font-light tracking-wide md:text-lg">
+    <p className="text-muted-foreground max-w-xl text-base leading-relaxed font-light tracking-wide whitespace-pre-line md:text-lg">
       {displayed}
       {!done && (
         <span className="bg-primary ml-0.5 inline-block h-4 w-0.5 animate-pulse align-middle" />

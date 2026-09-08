@@ -35,8 +35,15 @@ const isSectionVisible = (id: string) =>
 function ResumeHeader({ compact = false }: { compact?: boolean }) {
   return (
     <div className={`${compact ? "mb-4" : "mb-8"}`}>
-      <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-        <div>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        {config.avatarUrl && (
+          <img
+            src={config.avatarUrl}
+            alt={config.name}
+            className="border-border h-28 w-20 shrink-0 self-start rounded-lg border object-cover sm:self-auto"
+          />
+        )}
+        <div className="min-w-0 flex-1">
           <h1 className="text-foreground font-serif text-3xl leading-none font-light tracking-tight">
             {config.name}
           </h1>

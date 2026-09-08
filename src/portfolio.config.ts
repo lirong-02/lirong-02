@@ -7,8 +7,8 @@
  * ============================================================
  */
 
-import type { ColorPreset, PresetPalette } from '@/lib/themes';
-import rawConfigYaml from '../portfolio.config.yaml';
+import type { ColorPreset, PresetPalette } from "@/lib/themes";
+import rawConfigYaml from "../portfolio.config.yaml";
 
 const rawConfig = rawConfigYaml as unknown as {
   name: string;
@@ -43,9 +43,14 @@ const rawConfig = rawConfigYaml as unknown as {
     name: string;
     description: string;
     tags: string[];
-    liveUrl: string;
-    repoUrl: string;
-    featured: boolean;
+    liveUrl?: string;
+    repoUrl?: string;
+    featured?: boolean;
+    category?: string;
+    mediaType?: "video" | "image" | "link";
+    mediaUrl?: string;
+    posterUrl?: string;
+    orientation?: "portrait" | "landscape";
   }[];
   education: { institution: string; degree: string; period: string }[];
   certifications: {
@@ -91,21 +96,35 @@ const rawConfig = rawConfigYaml as unknown as {
 };
 
 export type SectionId =
-  | 'about'
-  | 'stats'
-  | 'skills'
-  | 'languages'
-  | 'experience'
-  | 'projects'
-  | 'education'
-  | 'certifications'
-  | 'publications'
-  | 'testimonials'
-  | 'contact';
+  | "about"
+  | "stats"
+  | "skills"
+  | "languages"
+  | "experience"
+  | "projects"
+  | "education"
+  | "certifications"
+  | "publications"
+  | "testimonials"
+  | "contact";
 
 export interface SectionEntry {
   id: SectionId;
   show: boolean;
+}
+
+export interface Project {
+  name: string;
+  description: string;
+  tags: string[];
+  liveUrl?: string;
+  repoUrl?: string;
+  featured?: boolean;
+  category?: string;
+  mediaType?: "video" | "image" | "link";
+  mediaUrl?: string;
+  posterUrl?: string;
+  orientation?: "portrait" | "landscape";
 }
 
 export interface Language {
@@ -156,29 +175,29 @@ export interface ResumeTheme {
 export const config = {
   ...rawConfig,
   colorPreset: rawConfig.colorPreset as ColorPreset,
-  defaultTheme: rawConfig.defaultTheme as 'system' | 'light' | 'dark',
-  siteMode: (rawConfig.siteMode ?? 'portfolio') as 'landing' | 'portfolio',
+  defaultTheme: rawConfig.defaultTheme as "system" | "light" | "dark",
+  siteMode: (rawConfig.siteMode ?? "portfolio") as "landing" | "portfolio",
   sections: rawConfig.sections as SectionEntry[],
   stats: (rawConfig.stats ?? []) as Stat[],
   languages: (rawConfig.languages ?? []) as Language[],
   certifications: (rawConfig.certifications ?? []) as Certification[],
   publications: (rawConfig.publications ?? []) as Publication[],
   testimonials: (rawConfig.testimonials ?? []) as Testimonial[],
-  siteUrl: rawConfig.siteUrl ?? '',
+  siteUrl: rawConfig.siteUrl ?? "",
   showPoweredBy: rawConfig.showPoweredBy ?? false,
-  contactFormEndpoint: rawConfig.contactFormEndpoint ?? '',
-  contactHeading: rawConfig.contactHeading ?? '',
-  contactTitle: rawConfig.contactTitle ?? '',
-  contactDescription: rawConfig.contactDescription ?? '',
+  contactFormEndpoint: rawConfig.contactFormEndpoint ?? "",
+  contactHeading: rawConfig.contactHeading ?? "",
+  contactTitle: rawConfig.contactTitle ?? "",
+  contactDescription: rawConfig.contactDescription ?? "",
   analytics: {
-    goatcounterCode: rawConfig.analytics?.goatcounterCode ?? '',
+    goatcounterCode: rawConfig.analytics?.goatcounterCode ?? "",
   },
   blog: {
     enabled: rawConfig.blog?.enabled ?? false,
-    title: rawConfig.blog?.title ?? 'Blog',
-    description: rawConfig.blog?.description ?? '',
+    title: rawConfig.blog?.title ?? "Blog",
+    description: rawConfig.blog?.description ?? "",
   },
-  primaryColor: rawConfig.primaryColor ?? '',
+  primaryColor: rawConfig.primaryColor ?? "",
   customColors: rawConfig.customColors,
   resumeTheme: {
     twoColumn: (rawConfig.resumeTheme?.twoColumn ??
